@@ -1,22 +1,29 @@
-import { getPosts } from "@/utils/utils";
-import { Column } from "@once-ui-system/core";
+import { projects } from "@/resources";
 import { ProjectCard } from "@/components";
+import React from "react";
+
+import { Locale } from "@/i18n-config";
 
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  locale?: Locale;
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
+export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
+  let allProjects = [...projects];
 
   // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {
-    allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
+    allProjects = allProjects.filter(
+      (project) => !exclude.includes(project.slug)
+    );
   }
 
   const sortedProjects = allProjects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    return (
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
   });
 
   const displayedProjects = range
@@ -24,20 +31,21 @@ export function Projects({ range, exclude }: ProjectsProps) {
     : sortedProjects;
 
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {displayedProjects.map((post, index) => (
-        <ProjectCard
-          priority={index < 2}
-          key={post.slug}
-          href={`/work/${post.slug}`}
-          images={post.metadata.images}
-          title={post.metadata.title}
-          description={post.metadata.summary}
-          content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={post.metadata.link || ""}
-        />
+    <ul
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10"
+      aria-label="Projects list"
+    >
+      {displayedProjects.map((project, index) => (
+        <li key={project.slug}>
+          <ProjectCard
+            priority={index < 2}
+            href={`/${locale}/projects/${project.slug}`}
+            images={project.images}
+            title={project.title}
+            description={project.summary}
+          />
+        </li>
       ))}
-    </Column>
+    </ul>
   );
 }

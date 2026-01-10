@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog"
+  },
+  "home": {
+    "latestWork": "Latest Work",
+    "featured": "Featured projects"
+  },
+  "about": {
+    "introduction": "Introduction",
+    "workExperience": "Work Experience",
+    "studies": "Studies",
+    "technicalSkills": "Technical Skills"
+  }
+}

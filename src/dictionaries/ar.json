@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "home": "الرئيسية",
+    "about": "عني",
+    "projects": "المشاريع",
+    "blog": "المدونة"
+  },
+  "home": {
+    "latestWork": "آخر الأعمال",
+    "featured": "مشاريع مختارة"
+  },
+  "about": {
+    "introduction": "مقدمة",
+    "workExperience": "الخبرة العملية",
+    "studies": "الدراسة",
+    "technicalSkills": "المهارات التقنية"
+  }
+}

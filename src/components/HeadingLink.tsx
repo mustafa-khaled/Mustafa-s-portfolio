@@ -1,9 +1,8 @@
 "use client";
 
-import React, { JSX } from "react";
-import { Heading, Flex, IconButton, useToast } from "@once-ui-system/core";
-
-import styles from "@/components/HeadingLink.module.scss";
+import React from "react";
+import { iconLibrary } from "@/resources/icons";
+import classNames from "classnames";
 
 interface HeadingLinkProps {
   id: string;
@@ -12,58 +11,58 @@ interface HeadingLinkProps {
   style?: React.CSSProperties;
 }
 
-export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, style }) => {
-  const { addToast } = useToast();
-
+export const HeadingLink: React.FC<HeadingLinkProps> = ({
+  id,
+  level,
+  children,
+  style,
+}) => {
   const copyURL = (id: string): void => {
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
     navigator.clipboard.writeText(url).then(
       () => {
-        addToast({
-          variant: "success",
-          message: "Link copied to clipboard.",
-        });
+        // Simple success notification could go here
+        console.log("Link copied: ", url);
       },
       () => {
-        addToast({
-          variant: "danger",
-          message: "Failed to copy link.",
-        });
-      },
+        console.error("Failed to copy link");
+      }
     );
   };
 
-  const variantMap = {
-    1: "display-strong-xs",
-    2: "heading-strong-xl",
-    3: "heading-strong-l",
-    4: "heading-strong-m",
-    5: "heading-strong-s",
-    6: "heading-strong-xs",
-  } as const;
+  const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
+  const sizeClasses = {
+    1: "text-4xl md:text-5xl font-bold mb-6",
+    2: "text-3xl md:text-4xl font-bold mb-5",
+    3: "text-2xl md:text-3xl font-bold mb-4",
+    4: "text-xl md:text-2xl font-bold mb-3",
+    5: "text-lg md:text-xl font-bold mb-2",
+    6: "text-base md:text-lg font-bold mb-1",
+  };
 
-  const variant = variantMap[level];
-  const asTag = `h${level}` as keyof JSX.IntrinsicElements;
+  const IconComponent = iconLibrary.openLink;
 
   return (
-    <Flex
+    <div
       style={style}
       onClick={() => copyURL(id)}
-      className={styles.control}
-      vertical="center"
-      gap="4"
+      className="group flex items-center gap-2 cursor-pointer w-fit scroll-mt-24"
     >
-      <Heading className={styles.text} id={id} variant={variant} as={asTag}>
+      <Tag
+        id={id}
+        className={classNames(
+          sizeClasses[level],
+          "text-[var(--neutral-on-background-strong)] mb-0 transition-colors group-hover:text-[var(--brand-solid-strong)]"
+        )}
+      >
         {children}
-      </Heading>
-      <IconButton
-        className={styles.visibility}
-        size="s"
-        icon="openLink"
-        variant="ghost"
-        tooltip="Copy"
-        tooltipPosition="right"
-      />
-    </Flex>
+      </Tag>
+      <button
+        className="opacity-0 group-hover:opacity-100 transition-opacity p-1 text-[var(--neutral-on-background-weak)] hover:text-[var(--brand-solid-strong)]"
+        aria-label="Copy link"
+      >
+        {IconComponent && <IconComponent size={18} />}
+      </button>
+    </div>
   );
 };

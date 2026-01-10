@@ -1,16 +1,3 @@
-import {
-  BorderStyle,
-  ChartMode,
-  ChartVariant,
-  NeutralColor,
-  ScalingSize,
-  Schemes,
-  SolidStyle,
-  SolidType,
-  SurfaceStyle,
-  Theme,
-  TransitionStyle,
-} from "@once-ui-system/core";
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 /**
@@ -46,33 +33,42 @@ export type FontsConfig = {
  * Style customization for main layout.
  */
 export type StyleConfig = {
-  theme: Theme;
-  neutral: NeutralColor;
-  brand: Schemes;
-  accent: Schemes;
-  solid: SolidType;
-  solidStyle: SolidStyle;
-  border: BorderStyle;
-  surface: SurfaceStyle;
-  transition: TransitionStyle;
-  scaling: ScalingSize;
-};
-
-/**
- * Data style configuration for charts.
- */
-export type DataStyleConfig = {
-  variant: ChartVariant;
-  mode: ChartMode;
-  height: number;
-  axis: {
-    stroke: string;
-  };
-  tick: {
-    fill: string;
-    fontSize: number;
-    line: boolean;
-  };
+  theme: "light" | "dark" | "inherit" | "system";
+  neutral: "slate" | "gray" | "zinc" | "neutral" | "stone";
+  brand:
+    | "blue"
+    | "indigo"
+    | "violet"
+    | "magenta"
+    | "pink"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "moss"
+    | "green"
+    | "emerald"
+    | "aqua"
+    | "cyan";
+  accent:
+    | "blue"
+    | "indigo"
+    | "violet"
+    | "magenta"
+    | "pink"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "moss"
+    | "green"
+    | "emerald"
+    | "aqua"
+    | "cyan";
+  solid: "color" | "contrast";
+  solidStyle: "flat" | "gradient";
+  border: "full" | "playful" | "conservative";
+  surface: "filled" | "translucent";
+  transition: "all" | "micro" | "macro";
+  scaling: "90" | "95" | "100" | "105" | "110";
 };
 
 /**
@@ -120,14 +116,6 @@ export type EffectsConfig = {
 };
 
 /**
- * Mailchimp configuration for newsletter forms.
- */
-export type MailchimpConfig = {
-  action: string;
-  effects: EffectsConfig;
-};
-
-/**
  * Schema data for SEO/meta tags.
  */
 export type SchemaConfig = {
@@ -170,7 +158,6 @@ export type SocialSharingConfig = {
  */
 export type OnceUIConfig = {
   display: DisplayConfig;
-  mailchimp: MailchimpConfig;
   routes: RoutesConfig;
   protectedRoutes: ProtectedRoutesConfig;
   baseURL: string;
@@ -180,5 +167,4 @@ export type OnceUIConfig = {
   sameAs: SameAsConfig;
   socialSharing: SocialSharingConfig;
   effects: EffectsConfig;
-  dataStyle: DataStyleConfig;
 };

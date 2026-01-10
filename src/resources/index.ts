@@ -1,4 +1,3 @@
-// import a pre-defined template for config and content options
 export {
   person,
   social,
@@ -7,12 +6,13 @@ export {
   about,
   blog,
   work,
+  projects,
+  blogPosts,
   gallery,
 } from "./content";
 
 export {
   display,
-  mailchimp,
   routes,
   protectedRoutes,
   baseURL,
@@ -22,5 +22,4 @@ export {
   sameAs,
   socialSharing,
   effects,
-  dataStyle,
 } from "./once-ui.config";

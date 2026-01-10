@@ -1,194 +1,121 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
-
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { useParams, usePathname } from "next/navigation";
+import Link from "next/link";
+import React from "react";
+import { routes, display, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
-import styles from "./Header.module.scss";
+import { iconLibrary } from "@/resources/icons";
+import classNames from "classnames";
+import { Locale } from "@/i18n-config";
 
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+interface NavButtonProps {
+  href: string;
+  icon: string;
+  label?: string;
+  selected: boolean;
+  hideLabelOnMobile?: boolean;
+}
+
+const NavButton = ({
+  href,
+  icon,
+  label,
+  selected,
+  hideLabelOnMobile,
+}: NavButtonProps) => {
+  const IconComponent = iconLibrary[icon as keyof typeof iconLibrary];
+
+  return (
+    <Link
+      href={href}
+      className={classNames(
+        "flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200",
+        selected
+          ? "bg-[var(--neutral-alpha-medium)] text-[var(--neutral-on-background-strong)] shadow-sm"
+          : "text-[var(--neutral-on-background-weak)] hover:bg-[var(--neutral-alpha-weak)] hover:text-[var(--neutral-on-background-strong)]"
+      )}
+    >
+      {IconComponent && <IconComponent size={18} />}
+      {label && (
+        <span
+          className={classNames(
+            "text-sm font-medium",
+            hideLabelOnMobile ? "hidden md:inline" : ""
+          )}
+        >
+          {label}
+        </span>
+      )}
+    </Link>
+  );
 };
-
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const params = useParams();
+  const locale = (params?.locale as Locale) || "en";
+
+  const getPath = (path: string) => `/${locale}${path === "/" ? "" : path}`;
 
   return (
-    <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade
-        hide
-        s={{ hide: false }}
-        fillWidth
-        position="fixed"
-        bottom="0"
-        to="top"
-        height="80"
-        zIndex={9}
-      />
-      <Row
-        fitHeight
-        className={styles.position}
-        position="sticky"
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
-        horizontal="center"
-        data-border="rounded"
-        s={{
-          position: "fixed",
-        }}
-      >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
-        </Row>
-        <Row fillWidth horizontal="center">
-          <Row
-            background="page"
-            border="neutral-alpha-weak"
-            radius="m-4"
-            shadow="l"
-            padding="4"
-            horizontal="center"
-            zIndex={1}
+    <header className="sticky top-0 z-50 w-full flex justify-center p-4 h-fit">
+      {/* Background blurs */}
+      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[var(--page-background)] to-transparent pointer-events-none" />
+
+      <nav className="relative z-10 flex items-center bg-[var(--page-background)] border border-[var(--neutral-alpha-weak)] rounded-2xl p-1 shadow-lg backdrop-blur-md">
+        <div className="flex items-center gap-1">
+          {routes["/"] && (
+            <NavButton
+              icon="home"
+              href={getPath("/")}
+              selected={pathname === `/${locale}` || pathname === `/${locale}/`}
+            />
+          )}
+
+          <div className="w-[1px] h-6 bg-[var(--neutral-alpha-medium)] mx-1" />
+
+          {routes["/projects"] && (
+            <NavButton
+              icon="grid"
+              href={getPath("/projects")}
+              label={work.label}
+              selected={pathname.startsWith(`/${locale}/projects`)}
+              hideLabelOnMobile
+            />
+          )}
+
+          {routes["/blog"] && (
+            <NavButton
+              icon="book"
+              href={getPath("/blog")}
+              label={blog.label}
+              selected={pathname.startsWith(`/${locale}/blog`)}
+              hideLabelOnMobile
+            />
+          )}
+
+          <div className="w-[1px] h-6 bg-[var(--neutral-alpha-medium)] mx-1" />
+
+          {/* Locale Switcher */}
+          <Link
+            href={pathname.replace(
+              `/${locale}`,
+              locale === "en" ? "/ar" : "/en"
+            )}
+            className="px-3 py-1 text-xs font-bold uppercase rounded-md hover:bg-[var(--neutral-alpha-weak)] transition-colors"
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
-              {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      label={about.label}
-                      selected={pathname === "/about"}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/work"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/blog"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
-                    />
-                  </Row>
-                </>
-              )}
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
-              )}
-            </Row>
-          </Row>
-        </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
-          <Flex
-            paddingRight="12"
-            horizontal="end"
-            vertical="center"
-            textVariant="body-default-s"
-            gap="20"
-          >
-            <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
-            </Flex>
-          </Flex>
-        </Flex>
-      </Row>
-    </>
+            {locale === "en" ? "عربي" : "EN"}
+          </Link>
+
+          {display.themeSwitcher && (
+            <React.Fragment>
+              <div className="w-[1px] h-6 bg-[var(--neutral-alpha-medium)] mx-1" />
+              <ThemeToggle />
+            </React.Fragment>
+          )}
+        </div>
+      </nav>
+    </header>
   );
 };

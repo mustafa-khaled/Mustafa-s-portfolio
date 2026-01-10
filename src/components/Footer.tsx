@@ -1,52 +1,46 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
-import styles from "./Footer.module.scss";
+import { iconLibrary } from "@/resources/icons";
+import React from "react";
+import Link from "next/link";
+import classNames from "classnames";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
-      <Row
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="between"
-        vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-        }}
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
-          </Text>
-        </Text>
-        <Row gap="16">
+    <footer className="flex flex-col items-center w-full p-2">
+      <div className="flex flex-col md:flex-row w-full max-w-[var(--static-width-m)] py-2 px-4 gap-4 justify-between items-center bg-[var(--page-background)] border border-[var(--neutral-alpha-weak)] rounded-2xl shadow-sm">
+        <div className="text-sm font-medium text-[var(--neutral-on-background-strong)]">
+          <span className="text-[var(--neutral-on-background-weak)] mr-1">
+            © {currentYear} /
+          </span>
+          <span>{person.name}</span>
+        </div>
+        <div className="flex gap-4">
           {social.map(
             (item) =>
               item.link && (
-                <IconButton
+                <Link
                   key={item.name}
                   href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
+                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[var(--neutral-on-background-weak)] transition-all hover:bg-[var(--neutral-alpha-weak)] hover:text-[var(--neutral-on-background-strong)]"
+                  title={item.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.icon &&
+                    iconLibrary[item.icon as keyof typeof iconLibrary] &&
+                    React.createElement(
+                      iconLibrary[item.icon as keyof typeof iconLibrary],
+                      { size: 18 }
+                    )}
+                </Link>
+              )
           )}
-        </Row>
-      </Row>
-      <Row height="80" hide s={{ hide: false }} />
-    </Row>
+        </div>
+      </div>
+      {/* Spacer for mobile fixed header/footer if needed */}
+      <div className="h-20 md:hidden" />
+    </footer>
   );
 };

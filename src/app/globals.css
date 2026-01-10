@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Configuration */
+  --font-heading: "Geist", sans-serif;
+  --font-body: "Geist", sans-serif;
+  --font-label: "Geist", sans-serif;
+  --font-code: "Geist Mono", monospace;
+
+  /* Theme Tokens - Dark (Default) */
+  --page-background: #09090b;
+  --neutral-on-background-strong: #ffffff;
+  --neutral-on-background-medium: #a1a1aa;
+  --neutral-on-background-weak: #71717a;
+
+  --brand-solid-strong: #06b6d4;
+  --brand-alpha-strong: rgba(6, 182, 212, 0.4);
+  --brand-alpha-medium: rgba(6, 182, 212, 0.2);
+  --brand-alpha-weak: rgba(6, 182, 212, 0.1);
+  --brand-on-background-strong: #ffffff;
+  --brand-medium: #0ea5e9;
+
+  --accent-solid-weak: #f43f5e;
+
+  --neutral-alpha-weak: rgba(255, 255, 255, 0.05);
+  --neutral-alpha-medium: rgba(255, 255, 255, 0.1);
+  --surface: rgba(255, 255, 255, 0.03);
+
+  /* Spacing Tokens */
+  --static-space-xs: 0.25rem;
+  --static-space-s: 0.5rem;
+  --static-space-m: 1rem;
+  --static-space-l: 2rem;
+  --static-space-xl: 4rem;
+
+  --static-width-m: 48rem;
+  --static-width-l: 64rem;
+
+  /* Radius Tokens */
+  --radius-xs: 0.25rem;
+  --radius-s: 0.5rem;
+  --radius-m: 0.75rem;
+  --radius-l: 1.5rem;
+  --radius-xl: 2.5rem;
+}
+
+[data-theme="light"] {
+  --page-background: #ffffff;
+  --neutral-on-background-strong: #09090b;
+  --neutral-on-background-medium: #52525b;
+  --neutral-on-background-weak: #71717a;
+
+  --neutral-alpha-weak: rgba(0, 0, 0, 0.05);
+  --neutral-alpha-medium: rgba(0, 0, 0, 0.1);
+  --surface: rgba(0, 0, 0, 0.02);
+
+  --brand-alpha-strong: rgba(14, 165, 233, 0.3);
+  --brand-on-background-strong: #0369a1;
+}
+
+body {
+  background-color: var(--page-background);
+  color: var(--neutral-on-background-strong);
+  font-family: var(--font-body);
+}
+
+.background-dots {
+  background-image: radial-gradient(
+    var(--brand-alpha-strong) 0.5px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+}
+
+.background-glow {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    var(--brand-alpha-strong) 0%,
+    transparent 70%
+  );
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Typography / Prose */
+.prose {
+  color: var(--neutral-on-background-medium);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--neutral-on-background-strong);
+}
+
+.prose a {
+  color: var(--brand-solid-strong);
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose code {
+  color: var(--neutral-on-background-strong);
+  background-color: var(--neutral-alpha-weak);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-code);
+}
+
+.prose pre {
+  background-color: var(--neutral-alpha-weak);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid var(--neutral-alpha-medium);
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Performance and Interactions */
+::selection {
+  background-color: var(--brand-alpha-medium);
+  color: var(--brand-on-background-strong);
+}
+
+.work-experience-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.work-experience-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-alpha-medium) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+}

@@ -24,7 +24,7 @@ export type Person = {
   /** Email address */
   email: string;
   /** IANA time zone location */
-  location: IANATimeZone;
+  location: string;
   /** Languages spoken */
   languages?: string[];
 };
@@ -185,26 +185,8 @@ export interface About extends BasePageConfig {
     title: string;
     /** List of technical skills */
     skills: Array<{
-      /** Skill title */
-      title: string;
-      /** Skill description */
-      description?: React.ReactNode;
-      /** Skill tags */
-      tags?: Array<{
-        name: string;
-        icon?: string;
-      }>;
-      /** Images related to the skill */
-      images?: Array<{
-        /** Image source path */
-        src: string;
-        /** Image alt text */
-        alt: string;
-        /** Image width ratio */
-        width: number;
-        /** Image height ratio */
-        height: number;
-      }>;
+      name: string;
+      icon: string;
     }>;
   };
 }
@@ -236,3 +218,40 @@ export interface Gallery extends BasePageConfig {
     orientation: string;
   }>;
 }
+
+/**
+ * Team member information.
+ */
+export type TeamMember = {
+  name: string;
+  role: string;
+  avatar: string;
+  linkedIn?: string;
+};
+
+/**
+ * Project information.
+ */
+export type Project = {
+  slug: string;
+  title: string;
+  publishedAt: string;
+  summary: string;
+  images: string[];
+  team?: TeamMember[];
+  link?: string;
+  content: React.ReactNode;
+};
+
+/**
+ * Blog post information.
+ */
+export type BlogPost = {
+  slug: string;
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+  team?: TeamMember[];
+  content: React.ReactNode;
+};
