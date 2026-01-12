@@ -240,6 +240,8 @@ export type Project = {
   images: string[];
   team?: TeamMember[];
   link?: string;
+  preview?: string;
+  github?: string;
   content: React.ReactNode;
 };
 

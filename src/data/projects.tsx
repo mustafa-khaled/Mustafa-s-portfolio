@@ -3,379 +3,283 @@ import { Locale } from "@/i18n-config";
 
 const sharedProjects = [
   {
-    slug: "automate-design-handovers-with-a-figma-to-code-pipeline",
-    publishedAt: "2024-04-01",
+    slug: "pizzaco",
+    publishedAt: "2024-03-20",
     images: [
-      "/images/projects/project-01/cover-02.jpg",
-      "/images/projects/project-01/image-03.jpg",
+      "/images/projects/pizzaco/pizzaco-thumb.png",
+      "/images/projects/pizzaco/home page.png",
+      "/images/projects/pizzaco/menu.png",
+      "/images/projects/pizzaco/order.png",
     ],
-    link: "https://once-ui.com/",
+    preview: "https://pizzaco.netlify.app/",
+    github: "https://github.com/mustafa-khaled/Fast-Pizza",
   },
   {
-    slug: "building-once-ui-a-customizable-design-system",
-    publishedAt: "2024-04-08",
+    slug: "entertainment-app",
+    publishedAt: "2024-02-15",
     images: [
-      "/images/projects/project-01/cover-01.jpg",
-      "/images/projects/project-01/cover-02.jpg",
-      "/images/projects/project-01/cover-03.jpg",
-      "/images/projects/project-01/cover-04.jpg",
+      "/images/projects/entertainment/entertainment-thump.png",
+      "/images/projects/entertainment/Home.png",
+      "/images/projects/entertainment/details.png",
+      "/images/projects/entertainment/tv show.png",
     ],
-    link: undefined,
+    preview: "https://entertainment-application.netlify.app/",
+    github: "https://github.com/mustafa-khaled/Entertainment-App",
   },
 ];
 
 const projectsEn = {
-  "automate-design-handovers-with-a-figma-to-code-pipeline": {
-    title: "Automating Design Handovers with a Figma to Code Pipeline",
+  pizzaco: {
+    title: "PizzaCo",
     summary:
-      "Explore the enduring debate between using spaces and tabs for code indentation, and why this choice matters more than you might think.",
+      "A modern pizza ordering application built with React and Tailwind CSS, featuring a dynamic menu, real-time ordering, and priority delivery options.",
     team: [
       {
-        name: "John Doe",
+        name: "Mustafa Khaled",
         role: "Software Engineer",
         avatar: "/images/avatar.jpg",
-        linkedIn: "https://www.linkedin.com/company/once-ui/",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
       },
     ],
     content: (
       <>
         <h2>Overview</h2>
         <p>
-          In this project, I focused on automating the often tedious design
-          handover process. The goal was to create a pipeline that converts
-          Figma designs directly into clean, production-ready code. By
-          integrating design tokens, component libraries, and automated
-          workflows, this solution significantly reduced the time spent on
-          translating design assets into code, while maintaining design
-          consistency across the product.
+          PizzaCo is a comprehensive pizza ordering platform designed to provide
+          a seamless and fast user experience. Built with React and powered by a
+          dedicated backend API, it handles everything from dynamic menu
+          discovery to complex order processing.
         </p>
         <h2>Key Features</h2>
         <ul>
           <li>
-            <strong>Figma Plugin Integration</strong>: Developed a custom Figma
-            plugin that extracts design tokens such as colors, typography, and
-            spacing values, and exports them in a format compatible with our
-            codebase.
+            <strong>Dynamic Menu</strong>: Users can explore a wide variety of
+            pizzas, each with detailed descriptions and pricing.
           </li>
           <li>
-            <strong>Code Generation</strong>: Integrated an automated process
-            that translates Figma components into React code using a combination
-            of design tokens and pre-built component templates. This allowed
-            developers to focus more on logic and less on repetitive UI coding.
+            <strong>Order Customization</strong>: Pick your items and manage
+            your cart effortlessly.
           </li>
           <li>
-            <strong>Continuous Sync</strong>: Established a CI/CD pipeline that
-            continuously synchronizes design changes from Figma to the codebase,
-            ensuring design updates are reflected instantly without manual
-            intervention.
+            <strong>Personal Information & Address</strong>: Integrated user
+            forms for personal details and delivery addresses to ensure
+            accuracy.
           </li>
           <li>
-            <strong>Scalable Design System</strong>: Leveraged a design system
-            that remains the single source of truth for both designers and
-            developers, making it easy to maintain consistency even as the
-            product evolves.
+            <strong>Advanced Ordering</strong>: Make your order with real-time
+            status updates.
+          </li>
+          <li>
+            <strong>Priority Delivery</strong>: Option to mark orders as
+            priority for faster processing and delivery.
           </li>
         </ul>
         <h2>Technologies Used</h2>
         <ul>
           <li>
-            <strong>Figma API</strong>: For extracting design tokens and
-            component data directly from the Figma designs.
+            <strong>React</strong>: For building a responsive and interactive
+            user interface.
           </li>
           <li>
-            <strong>React and Next.js</strong>: For building the front-end
-            codebase with clean, reusable components.
+            <strong>Tailwind CSS</strong>: For a modern, clean, and responsive
+            design.
           </li>
           <li>
-            <strong>Styled-Components</strong>: For managing styles dynamically
-            using design tokens.
-          </li>
-          <li>
-            <strong>GitHub Actions</strong>: For automating the pipeline and
-            syncing design changes to the repository.
+            <strong>Redux Toolkit</strong>: For efficient state management
+            across the ordering flow.
           </li>
         </ul>
-        <h2>Challenges and Learnings</h2>
-        <p>
-          One key challenge was ensuring that the generated code was clean and
-          maintainable. This involved setting up intelligent mapping between
-          Figma components and React code structures, as well as managing edge
-          cases like responsive design and conditional rendering. Additionally,
-          the continuous synchronization required a robust error-handling system
-          to prevent conflicts during development.
-        </p>
-        <h2>Outcome</h2>
-        <p>
-          The automated Figma to code pipeline has streamlined the handoff
-          process, cutting down design-to-development time by 40%. Designers now
-          have more confidence that their designs will be accurately translated
-          into code, and developers can focus on more complex logic and feature
-          development. This project has proven the value of automation in
-          bridging the gap between design and development.
-        </p>
       </>
     ),
   },
-  "building-once-ui-a-customizable-design-system": {
-    title: "Building Once UI, a Customizable Design System",
+  "entertainment-app": {
+    title: "Entertainment App",
     summary:
-      "Development of a flexible and highly customizable design system using Next.js for front-end and Figma for design collaboration.",
+      "A feature-rich web application to discover movies and TV series, built with React, Redux, and TMDB API integration.",
     team: [
       {
-        name: "Selene Yu",
+        name: "Mustafa Khaled",
         role: "Software Engineer",
         avatar: "/images/avatar.jpg",
-        linkedIn: "https://www.linkedin.com/company/once-ui/",
-      },
-      {
-        name: "Lorant One",
-        role: "Design Engineer",
-        avatar: "/images/projects/project-01/avatar-01.jpg",
-        linkedIn: "https://www.linkedin.com/company/once-ui/",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
       },
     ],
     content: (
       <>
         <h2>Overview</h2>
         <p>
-          Development of a flexible and highly customizable design system using
-          Next.js for front-end and Figma for design collaboration.
+          The Entertainment App is a comprehensive platform for movie and TV
+          show enthusiasts. It leverages the TMDB API to provide up-to-date
+          information about trending, popular, and top-rated content across
+          various categories.
         </p>
         <h2>Key Features</h2>
         <ul>
           <li>
-            <strong>Component Library</strong>: Built a set of modular, reusable
-            UI components using React and styled-components in Next.js, focusing
-            on accessibility and responsiveness.
+            <strong>Multi-Category Discovery</strong>: Browse through Movies, TV
+            Series, and Bookmarked content.
           </li>
           <li>
-            <strong>Theming and Customization</strong>: Integrated a theming
-            system that allows easy switching and customization of color
-            palettes, typography, and layout styles using CSS variables and
-            Figma tokens.
+            <strong>Search Functionality</strong>: Quickly find any movie or TV
+            show using the integrated search bar.
           </li>
           <li>
-            <strong>Figma Integration</strong>: Collaborated closely with
-            designers by setting up a shared design library in Figma. This
-            library was synchronized with the codebase, ensuring design handoffs
-            were seamless and that design tokens remained consistent across both
-            platforms.
+            <strong>Bookmarking System</strong>: Save your favorite shows and
+            movies to access them later in a dedicated section.
           </li>
           <li>
-            <strong>Documentation and Usage Guidelines</strong>: Developed
-            comprehensive documentation with Storybook to showcase components,
-            usage patterns, and best practices, ensuring the design system is
-            easy to adopt by other teams.
+            <strong>Detailed Information</strong>: View cast members, ratings,
+            genres, and trailers for each title.
+          </li>
+          <li>
+            <strong>Responsive Design</strong>: Optimized for all devices, from
+            mobile phones to large desktop screens.
           </li>
         </ul>
         <h2>Technologies Used</h2>
         <ul>
           <li>
-            <strong>Next.js</strong>: For fast, server-rendered React
-            applications.
+            <strong>React</strong>: For building the UI components and managing
+            the app lifecycle.
           </li>
           <li>
-            <strong>Figma</strong>: For creating and managing design assets and
-            prototypes.
+            <strong>Redux Toolkit</strong>: Used for global state management,
+            especially for the bookmarking system.
           </li>
           <li>
-            <strong>Styled-Components</strong>: For styling React components
-            with a modular, themable approach.
+            <strong>Tailwind CSS</strong>: For building a sleek, modern, and
+            dark-themed UI.
           </li>
           <li>
-            <strong>Storybook</strong>: For building an interactive, documented
-            component library.
+            <strong>TMDB API</strong>: The source of truth for all entertainment
+            data.
           </li>
         </ul>
-        <h2>Challenges and Learnings</h2>
-        <p>
-          One key challenge was balancing the need for flexibility with the
-          desire to maintain design consistency. The solution involved creating
-          well-defined design tokens and establishing clear guidelines for when
-          and how components could be customized. Additionally, setting up
-          effective collaboration workflows between designers and developers
-          using Figma and Git was a learning experience that greatly improved
-          the process.
-        </p>
-        <h2>Outcome</h2>
-        <p>
-          The design system is now actively used across multiple projects,
-          leading to faster development cycles, fewer design inconsistencies,
-          and improved collaboration between design and development teams. It
-          has become a foundation for scaling our products efficiently while
-          ensuring a cohesive user experience.
-        </p>
       </>
     ),
   },
 };
 
 const projectsAr = {
-  "automate-design-handovers-with-a-figma-to-code-pipeline": {
-    title: "أتمتة تسليم التصميم باستخدام مسار Figma to Code",
+  pizzaco: {
+    title: "بيتزاكو (PizzaCo)",
     summary:
-      "استكشاف النقاش المستمر بين استخدام المسافات وعلامات الجدولة لمسافة بادئة للكود، ولماذا يهم هذا الاختيار أكثر مما تعتقد.",
+      "تطبيق عصري لطلب البيتزا تم بناؤه باستخدام React و Tailwind CSS، يتميز بقائمة طعام ديناميكية، وطلب فوري، وخيارات توصيل ذات أولوية.",
     team: [
       {
-        name: "جون دو",
+        name: "مصطفى خالد",
         role: "مهندس برمجيات",
         avatar: "/images/avatar.jpg",
-        linkedIn: "https://www.linkedin.com/company/once-ui/",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
       },
     ],
     content: (
       <>
         <h2>نظرة عامة</h2>
         <p>
-          في هذا المشروع، ركزت على أتمتة عملية تسليم التصميم التي غالباً ما تكون
-          مملة. كان الهدف هو إنشاء مسار يحول تصميمات Figma مباشرة إلى كود نظيف
-          وجاهز للإنتاج. من خلال دمج رموز التصميم ومكتبات المكونات وسير العمل
-          المؤتمت، قلل هذا الحل بشكل كبير من الوقت المستغرق في ترجمة أصول
-          التصميم إلى كود، مع الحفاظ على اتساق التصميم عبر المنتج.
+          بيتزاكو هو منصة شاملة لطلب البيتزا مصممة لتوفير تجربة مستخدم سلسة
+          وسريعة. تم بناؤه باستخدام React، وهو يتعامل مع كل شيء بدءًا من اكتشاف
+          القائمة الديناميكية وحتى معالجة الطلبات المعقدة.
         </p>
         <h2>الميزات الرئيسية</h2>
         <ul>
           <li>
-            <strong>تكامل ملحق Figma</strong>: تطوير ملحق Figma مخصص يستخرج رموز
-            التصميم مثل الألوان والطباعة وقيم التباعد، ويصدرها بتنسيق متوافق مع
-            قاعدة الكود الخاصة بنا.
+            <strong>قائمة ديناميكية</strong>: يمكن للمستخدمين استكشاف مجموعة
+            واسعة من أنواع البيتزا، كل منها بوصف مفصل وأسعار محددة.
           </li>
           <li>
-            <strong>توليد الكود</strong>: دمج عملية مؤتمتة تترجم مكونات Figma
-            إلى كود React باستخدام مزيج من رموز التصميم وقوالب المكونات المعدة
-            مسبقاً. سمح هذا للمطورين بالتركيز أكثر على المنطق وأقل على برمجة
-            واجهة المستخدم المتكررة.
+            <strong>تخصيص الطلب</strong>: اختر أصنافك وقم بإدارة عربة التسوق
+            الخاصة بك بسهولة.
           </li>
           <li>
-            <strong>المزامنة المستمرة</strong>: إنشاء مسار CI/CD يقوم بمزامنة
-            تغييرات التصميم باستمرار من Figma إلى قاعدة الكود، مما يضمن انعكاس
-            تحديثات التصميم على الفور دون تدخل يدوي.
+            <strong>المعلومات الشخصية والعنوان</strong>: نماذج مدمجة لإضافة
+            البيانات الشخصية وعناوين التوصيل لضمان الدقة.
           </li>
           <li>
-            <strong>نظام تصميم قابل للتوسع</strong>: الاستفادة من نظام تصميم يظل
-            المصدر الوحيد للحقيقة لكل من المصممين والمطورين، مما يجعل من السهل
-            الحفاظ على الاتساق حتى مع تطور المنتج.
+            <strong>طلب متقدم</strong>: قم بتقديم طلبك مع تحديثات الحالة في
+            الوقت الفعلي.
+          </li>
+          <li>
+            <strong>توصيل ذو أولوية</strong>: خيار لتمييز الطلبات كأولوية
+            لمعالجتها وتوصيلها بشكل أسرع.
           </li>
         </ul>
         <h2>التقنيات المستخدمة</h2>
         <ul>
           <li>
-            <strong>Figma API</strong>: لاستخراج رموز التصميم وبيانات المكونات
-            مباشرة من تصميمات Figma.
+            <strong>React</strong>: لبناء واجهة مستخدم سريعة الاستجابة وتفاعلية.
           </li>
           <li>
-            <strong>React و Next.js</strong>: لبناء قاعدة كود الواجهة الأمامية
-            باستخدام مكونات نظيفة وقابلة لإعادة الاستخدام.
+            <strong>Tailwind CSS</strong>: لتصميم عصري ونظيف ومتجاوب.
           </li>
           <li>
-            <strong>Styled-Components</strong>: لإدارة الأنماط ديناميكياً
-            باستخدام رموز التصميم.
-          </li>
-          <li>
-            <strong>GitHub Actions</strong>: لأتمتة المسار ومزامنة تغييرات
-            التصميم مع المستودع.
+            <strong>Redux Toolkit</strong>: لإدارة الحالة عبر تدفق الطلب.
           </li>
         </ul>
-        <h2>التحديات والدروس المستفادة</h2>
-        <p>
-          كان أحد أكبر التحديات هو ضمان أن يكون الكود المولد نظيفاً وقابلاً
-          للصيانة. تضمن ذلك إعداد تعيين ذكي بين مكونات Figma وهياكل كود React،
-          بالإضافة إلى إدارة الحالات الخاصة مثل التصميم المتجاوب والتقديم
-          الشرطي. بالإضافة إلى ذلك، تطلبت المزامنة المستمرة نظاماً قوياً
-          للمعالجة الأخطاء لمنع التعارضات أثناء التطوير.
-        </p>
-        <h2>النتيجة</h2>
-        <p>
-          أدى مسار Figma to code المؤتمت إلى تبسيط عملية التسليم، مما قلل وقت
-          التصميم إلى التطوير بنسبة 40%. أصبح لدى المصممين الآن ثقة أكبر في أن
-          تصميماتهم ستتم ترجمتها بدقة إلى كود، ويمكن للمطورين التركيز على منطق
-          أكثر تعقيداً وتطوير الميزات. أثبت هذا المشروع قيمة الأتمتة في سد
-          الفجوة بين التصميم والتطوير.
-        </p>
       </>
     ),
   },
-  "building-once-ui-a-customizable-design-system": {
-    title: "بناء Once UI، نظام تصميم قابل للتخصيص",
+  "entertainment-app": {
+    title: "تطبيق الترفيه (Entertainment App)",
     summary:
-      "تطوير نظام تصميم مرن وقابل للتخصيص للغاية باستخدام Next.js للواجهة الأمامية و Figma للتعاون في التصميم.",
+      "تطبيق ويب غني بالميزات لاكتشاف الأفلام والمسلسلات التلفزيونية، تم بناؤه باستخدام React و Redux وتكامل TMDB API.",
     team: [
       {
-        name: "سيلين يو",
+        name: "مصطفى خالد",
         role: "مهندس برمجيات",
         avatar: "/images/avatar.jpg",
-        linkedIn: "https://www.linkedin.com/company/once-ui/",
-      },
-      {
-        name: "لورانت وان",
-        role: "مهندس تصميم",
-        avatar: "/images/projects/project-01/avatar-01.jpg",
-        linkedIn: "https://www.linkedin.com/company/once-ui/",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
       },
     ],
     content: (
       <>
         <h2>نظرة عامة</h2>
         <p>
-          تطوير نظام تصميم مرن وقابل للتخصيص للغاية باستخدام Next.js للواجهة
-          الأمامية و Figma للتعاون في التصميم.
+          تطبيق الترفيه هو منصة شاملة لعشاق الأفلام والمسلسلات. يستفيد من واجهة
+          برمجة تطبيقات TMDB لتوفير أحدث المعلومات حول المحتوى الرائج والأكثر
+          شعبية والأعلى تقييمًا عبر فئات مختلفة.
         </p>
         <h2>الميزات الرئيسية</h2>
         <ul>
           <li>
-            <strong>مكتبة المكونات</strong>: بناء مجموعة من مكونات واجهة
-            المستخدم النمطية والقابلة لإعادة الاستخدام باستخدام React و
-            styled-components في Next.js، مع التركيز على إمكانية الوصول
-            والاستجابة.
+            <strong>اكتشاف فئات متعددة</strong>: تصفح الأفلام والمسلسلات
+            التلفزيونية والمحتوى المحفوظ.
           </li>
           <li>
-            <strong>السمات والتخصيص</strong>: دمج نظام سمات يسمح بتبديل وتخصيص
-            لوحات الألوان والطباعة وأنماط التخطيط بسهولة باستخدام متغيرات CSS
-            ورموز Figma.
+            <strong>وظيفة البحث</strong>: ابحث بسرعة عن أي فيلم أو مسلسل
+            تلفزيوني باستخدام شريط البحث المدمج.
           </li>
           <li>
-            <strong>تكامل Figma</strong>: التعاون الوثيق مع المصممين من خلال
-            إعداد مكتبة تصميم مشتركة في Figma. تمت مزامنة هذه المكتبة مع قاعدة
-            الكود، مما يضمن أن يكون تسليم التصميم سلساً وأن تظل رموز التصميم
-            متسقة عبر كلا النظامين.
+            <strong>نظام الإشارات المرجعية</strong>: احفظ عروضك وأفلامك المفضلة
+            للوصول إليها لاحقًا في قسم مخصص.
           </li>
           <li>
-            <strong>التوثيق وإرشادات الاستخدام</strong>: تطوير توثيق شامل مع
-            Storybook لعرض المكونات وأنماط الاستخدام وأفضل الممارسات، مما يضمن
-            سهولة اعتماد نظام التصميم من قبل الفرق الأخرى.
+            <strong>معلومات مفصلة</strong>: عرض طاقم العمل، التقييمات، الأنواع،
+            والعروض الدعائية لكل عنوان.
+          </li>
+          <li>
+            <strong>تصميم متجاوب</strong>: محسن لجميع الأجهزة، من الهواتف
+            المحمولة إلى الشاشات المكتبية الكبيرة.
           </li>
         </ul>
         <h2>التقنيات المستخدمة</h2>
         <ul>
           <li>
-            <strong>Next.js</strong>: لتطبيقات React سريعة التحميل من الخادم.
+            <strong>React</strong>: لبناء مكونات واجهة المستخدم وإدارة دورة حياة
+            التطبيق.
           </li>
           <li>
-            <strong>Figma</strong>: لإنشاء وإدارة أصول التصميم والنماذج الأولية.
+            <strong>Redux Toolkit</strong>: يستخدم لإدارة الحالة العالمية، خاصة
+            لنظام الإشارات المرجعية.
           </li>
           <li>
-            <strong>Styled-Components</strong>: لتنسيق مكونات React بنهج نمطي
-            وقابل للتخصيص.
+            <strong>Tailwind CSS</strong>: لبناء واجهة مستخدم أنيقة وعصرية
+            وداكنة.
           </li>
           <li>
-            <strong>Storybook</strong>: لبناء مكتبة مكونات تفاعلية وموثقة.
+            <strong>TMDB API</strong>: المصدر الأساسي لجميع بيانات الترفيه.
           </li>
         </ul>
-        <h2>التحديات والدروس المستفادة</h2>
-        <p>
-          كان أحد التحديات الرئيسية هو الموازنة بين الحاجة إلى المرونة والرغبة
-          في الحفاظ على اتساق التصميم. تمثل الحل في إنشاء رموز تصميم محددة جيداً
-          ووضع إرشادات واضحة لمتى وكيف يمكن تخصيص المكونات. بالإضافة إلى ذلك،
-          كان إعداد سير عمل تعاوني فعال بين المصممين والمطورين باستخدام Figma و
-          Git تجربة تعلم حسنت العملية بشكل كبير.
-        </p>
-        <h2>النتيجة</h2>
-        <p>
-          يُستخدم نظام التصميم الآن بنشاط في العديد من المشاريع، مما أدى إلى
-          دورات تطوير أسرع، وتقليل عدم الاتساق في التصميم، وتحسين التعاون بين
-          فرق التصميم والتطوير. لقد أصبح أساساً لتوسيع منتجاتنا بكفاءة مع ضمان
-          تجربة مستخدم متماسكة.
-        </p>
       </>
     ),
   },

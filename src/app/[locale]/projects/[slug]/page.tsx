@@ -1,15 +1,15 @@
 import { notFound } from "next/navigation";
-import { baseURL, about, person, work, projects } from "@/resources";
+import { baseURL, person, projects } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash } from "@/components";
 import { Metadata } from "next";
-import { Projects } from "@/components/work/Projects";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
 import { Locale, i18n } from "@/i18n-config";
 import { getDictionary } from "@/lib/get-dictionary";
+import { ProjectImages } from "@/components";
+import { iconLibrary } from "@/resources/icons";
 
 export async function generateStaticParams() {
   const params: { locale: Locale; slug: string }[] = [];
@@ -92,7 +92,6 @@ export default async function Project({
           }),
         }}
       />
-
       <div className="flex flex-col items-center max-w-[40rem] gap-4 text-center">
         <Link
           href={`/${locale}/projects`}
@@ -149,33 +148,36 @@ export default async function Project({
             </div>
           </div>
         )}
-      </div>
 
-      {project.images.length > 0 && (
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
-          <Image
-            src={project.images[0]}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-          />
+        <div className="flex items-center gap-4 mt-4">
+          {project.preview && (
+            <Link
+              href={project.preview}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2 rounded-xl bg-[var(--brand-strong)] text-white font-bold hover:scale-105 transition-transform"
+            >
+              {React.createElement(iconLibrary.globe, { size: 18 })}
+              Live Preview
+            </Link>
+          )}
+          {project.github && (
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2 rounded-xl bg-[var(--neutral-alpha-weak)] text-[var(--neutral-on-background-strong)] font-bold border border-[var(--neutral-alpha-medium)] hover:scale-105 transition-transform"
+            >
+              {React.createElement(iconLibrary.github, { size: 18 })}
+              GitHub
+            </Link>
+          )}
         </div>
-      )}
-
-      <article className="w-full max-w-[40rem] mx-auto prose prose-invert">
+      </div>
+      <ProjectImages images={project.images} title={project.title} />
+      <article className="w-full max-w-[40rem] space-y-2 mx-auto prose prose-invert">
         {project.content}
       </article>
-
-      <section className="flex flex-col items-center w-full gap-10 mt-10">
-        <div className="w-full max-w-[40rem] h-[1px] bg-[var(--neutral-alpha-medium)]" />
-        <h2 className="text-2xl md:text-4xl font-bold text-[var(--neutral-on-background-strong)] mb-6">
-          Related projects
-        </h2>
-        <Projects exclude={[project.slug]} range={[2]} locale={locale} />
-      </section>
-
-      <ScrollToHash />
     </div>
   );
 }
