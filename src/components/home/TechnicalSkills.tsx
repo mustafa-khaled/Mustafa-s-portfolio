@@ -12,20 +12,22 @@ interface TechnicalSkillsProps {
       icon: string;
     }>;
   };
+  id?: string;
 }
 
 export const TechnicalSkills: React.FC<TechnicalSkillsProps> = ({
   technical,
+  id,
 }) => {
   if (!technical.display) return null;
 
   return (
     <section
       className="flex flex-col w-full mb-16"
-      aria-labelledby="tech-skills-title"
+      aria-labelledby={id || "tech-skills-title"}
     >
       <h2
-        id="tech-skills-title"
+        id={id || "tech-skills-title"}
         className="text-2xl md:text-3xl font-bold mb-10 text-[var(--neutral-on-background-strong)]"
       >
         {technical.title}

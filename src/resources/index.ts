@@ -8,8 +8,7 @@ export {
   work,
   projects,
   blogPosts,
-  gallery,
-} from "./content";
+} from "@/data";
 
 export {
   display,

@@ -78,11 +78,13 @@ export default async function Home({
   const structure = [
     {
       title: dict.about.introduction,
+      id: "about-intro",
       display: aboutLocale.intro.display,
       items: [],
     },
     {
       title: dict.about.workExperience,
+      id: "about-work",
       display: aboutLocale.work.display,
       items: aboutLocale.work.experiences.map(
         (experience) => experience.company
@@ -90,6 +92,7 @@ export default async function Home({
     },
     {
       title: dict.about.studies,
+      id: "about-studies",
       display: aboutLocale.studies.display,
       items: aboutLocale.studies.institutions.map(
         (institution) => institution.name
@@ -97,6 +100,7 @@ export default async function Home({
     },
     {
       title: dict.about.technicalSkills,
+      id: "about-technical",
       display: aboutLocale.technical.display,
       items: aboutLocale.technical.skills.map((skill) => skill.name),
     },
@@ -142,15 +146,18 @@ export default async function Home({
             about={aboutLocale}
             featured={homeLocale.featured}
             locale={locale}
+            id="about-intro"
           />
 
           <section className="flex flex-col w-full">
             <WorkExperience
               work={{ ...aboutLocale.work, title: dict.about.workExperience }}
+              id="about-work"
             />
 
             <Studies
               studies={{ ...aboutLocale.studies, title: dict.about.studies }}
+              id="about-studies"
             />
 
             <TechnicalSkills
@@ -158,6 +165,7 @@ export default async function Home({
                 ...aboutLocale.technical,
                 title: dict.about.technicalSkills,
               }}
+              id="about-technical"
             />
           </section>
         </article>

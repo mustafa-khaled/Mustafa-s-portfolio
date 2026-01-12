@@ -32,6 +32,7 @@ interface HeroProps {
     href: string;
   };
   locale?: string;
+  id?: string;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -40,10 +41,11 @@ export const Hero: React.FC<HeroProps> = ({
   about,
   featured,
   locale = "en",
+  id,
 }) => {
   return (
     <section
-      id={about.intro.title}
+      id={id || about.intro.title}
       className="flex flex-col w-full min-h-[160px] justify-center mb-12"
       aria-labelledby="hero-title"
     >
@@ -76,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({
         {person.role}
       </p>
       {featured?.display && (
-        <div className="flex justify-center md:justify-start mb-6">
+        <div className="flex justify-center md:justify-start my-2">
           <Link
             href={`/${locale}${featured.href}`}
             className="flex items-center gap-3 py-1 ps-2 pe-4 bg-[var(--brand-alpha-weak)] hover:bg-[var(--brand-alpha-medium)] border border-[var(--brand-alpha-medium)] rounded-full transition-all duration-300 group"

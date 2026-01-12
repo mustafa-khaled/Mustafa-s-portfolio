@@ -6,6 +6,7 @@ import classNames from "classnames";
 interface TableOfContentsProps {
   structure: {
     title: string;
+    id: string;
     display: boolean;
     items: string[];
   }[];
@@ -44,7 +45,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({
         .map((section) => (
           <div key={section.title} className="flex flex-col gap-3 relative">
             <button
-              onClick={() => scrollTo(section.title, 80)}
+              onClick={() => scrollTo(section.id, 80)}
               className="group flex items-center cursor-pointer text-start transition-all ps-4 -ms-[1px] border-s-2 border-transparent hover:border-[var(--brand-solid-strong)]"
             >
               <span className="text-xs uppercase tracking-widest font-bold text-[var(--neutral-on-background-weak)] group-hover:text-[var(--neutral-on-background-strong)] ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-all">

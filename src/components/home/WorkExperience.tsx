@@ -13,18 +13,19 @@ interface WorkExperienceProps {
       achievements: React.ReactNode[];
     }>;
   };
+  id?: string;
 }
 
-export const WorkExperience: React.FC<WorkExperienceProps> = ({ work }) => {
+export const WorkExperience: React.FC<WorkExperienceProps> = ({ work, id }) => {
   if (!work.display) return null;
 
   return (
     <section
       className="flex flex-col w-full mb-16"
-      aria-labelledby="work-title"
+      aria-labelledby={id || "work-title"}
     >
       <h2
-        id="work-title"
+        id={id || "work-title"}
         className="text-2xl md:text-3xl font-bold mb-8 text-[var(--neutral-on-background-strong)]"
       >
         {work.title}

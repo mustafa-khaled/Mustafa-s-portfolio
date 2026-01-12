@@ -11,18 +11,19 @@ interface StudiesProps {
       description: React.ReactNode;
     }>;
   };
+  id?: string;
 }
 
-export const Studies: React.FC<StudiesProps> = ({ studies }) => {
+export const Studies: React.FC<StudiesProps> = ({ studies, id }) => {
   if (!studies.display) return null;
 
   return (
     <section
       className="flex flex-col w-full mb-16"
-      aria-labelledby="studies-title"
+      aria-labelledby={id || "studies-title"}
     >
       <h2
-        id="studies-title"
+        id={id || "studies-title"}
         className="text-2xl md:text-3xl font-bold mb-6 text-[var(--neutral-on-background-strong)]"
       >
         {studies.title}
