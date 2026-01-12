@@ -10,15 +10,16 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  const blogLocale = blog[locale];
   return {
-    title: blog.title,
-    description: blog.description,
+    title: blogLocale.title,
+    description: blogLocale.description,
     alternates: {
       canonical: `${baseURL}/${locale}/blog`,
     },
     openGraph: {
-      title: blog.title,
-      description: blog.description,
+      title: blogLocale.title,
+      description: blogLocale.description,
       url: `${baseURL}/${locale}/blog`,
     },
   };
@@ -32,6 +33,8 @@ export default async function BlogPage({
   const { locale } = await params;
   const dict = await getDictionary(locale);
 
+  const blogLocale = blog[locale];
+
   return (
     <div className="flex flex-col w-full max-w-5xl mx-auto pt-24 px-4 md:px-8">
       <script
@@ -40,14 +43,14 @@ export default async function BlogPage({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: blog.title,
-            description: blog.description,
+            name: blogLocale.title,
+            description: blogLocale.description,
             url: `${baseURL}/${locale}/blog`,
             author: {
               "@type": "Person",
-              name: person.name,
+              name: person[locale].name,
               url: `${baseURL}/${locale}/about`,
-              image: `${baseURL}${person.avatar}`,
+              image: `${baseURL}${person[locale].avatar}`,
             },
           }),
         }}

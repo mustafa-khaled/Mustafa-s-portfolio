@@ -46,6 +46,12 @@
   --radius-xl: 2.5rem;
 }
 
+:root[dir="rtl"] {
+  --font-heading: var(--font-arabic), "Geist", sans-serif;
+  --font-body: var(--font-arabic), "Geist", sans-serif;
+  --font-label: var(--font-arabic), "Geist", sans-serif;
+}
+
 [data-theme="light"] {
   --page-background: #ffffff;
   --neutral-on-background-strong: #09090b;

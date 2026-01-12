@@ -10,14 +10,14 @@ export default async function sitemap() {
   const locales = i18n.locales;
 
   const blogs = locales.flatMap((locale) =>
-    blogPosts.map((post) => ({
+    blogPosts[locale].map((post) => ({
       url: `${baseURL}/${locale}/blog/${post.slug}`,
       lastModified: post.publishedAt,
     }))
   );
 
   const works = locales.flatMap((locale) =>
-    projects.map((project) => ({
+    projects[locale].map((project) => ({
       url: `${baseURL}/${locale}/projects/${project.slug}`,
       lastModified: project.publishedAt,
     }))

@@ -11,7 +11,7 @@ interface ProjectsProps {
 }
 
 export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
-  let allProjects = [...projects];
+  let allProjects = [...projects[locale]];
 
   // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {

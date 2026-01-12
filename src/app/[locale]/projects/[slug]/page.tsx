@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   const params: { locale: Locale; slug: string }[] = [];
 
   for (const locale of i18n.locales) {
-    for (const project of projects) {
+    for (const project of projects[locale]) {
       params.push({ locale, slug: project.slug });
     }
   }
@@ -29,7 +29,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects[locale].find((p) => p.slug === slug);
 
   if (!project) return {};
 
@@ -59,7 +59,7 @@ export default async function Project({
   params: Promise<{ locale: Locale; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects[locale].find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
@@ -85,9 +85,9 @@ export default async function Project({
             )}`,
             author: {
               "@type": "Person",
-              name: person.name,
+              name: person[locale].name,
               url: `${baseURL}/${locale}/about`,
-              image: `${baseURL}${person.avatar}`,
+              image: `${baseURL}${person[locale].avatar}`,
             },
           }),
         }}

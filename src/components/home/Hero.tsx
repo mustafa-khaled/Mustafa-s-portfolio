@@ -63,14 +63,14 @@ export const Hero: React.FC<HeroProps> = ({
       <h1
         id="hero-title"
         className={classNames(
-          "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--neutral-on-background-strong)] mb-4 text-center md:text-left"
+          "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--neutral-on-background-strong)] mb-4 text-center md:text-start"
         )}
       >
         {person.name}
       </h1>
       <p
         className={classNames(
-          "text-xl md:text-2xl text-[var(--neutral-on-background-weak)] font-medium text-center md:text-left"
+          "text-xl md:text-2xl text-[var(--neutral-on-background-weak)] font-medium text-center md:text-start"
         )}
       >
         {person.role}
@@ -79,11 +79,11 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="flex justify-center md:justify-start mb-6">
           <Link
             href={`/${locale}${featured.href}`}
-            className="flex items-center gap-3 p-1 pr-4 bg-[var(--brand-alpha-weak)] hover:bg-[var(--brand-alpha-medium)] border border-[var(--brand-alpha-medium)] rounded-full transition-all duration-300 group"
+            className="flex items-center gap-3 py-1 ps-2 pe-4 bg-[var(--brand-alpha-weak)] hover:bg-[var(--brand-alpha-medium)] border border-[var(--brand-alpha-medium)] rounded-full transition-all duration-300 group"
           >
             {featured.title}
             {iconLibrary.arrowRight && (
-              <div className="text-[var(--brand-on-background-strong)] transition-transform duration-300 group-hover:translate-x-1">
+              <div className="text-[var(--brand-on-background-strong)] transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                 {React.createElement(iconLibrary.arrowRight, { size: 16 })}
               </div>
             )}

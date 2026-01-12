@@ -19,7 +19,7 @@ export async function generateStaticParams() {
   const params: { locale: Locale; slug: string }[] = [];
 
   for (const locale of i18n.locales) {
-    for (const post of blogPosts) {
+    for (const post of blogPosts[locale]) {
       params.push({ locale, slug: post.slug });
     }
   }
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogParams) {
   const { locale, slug } = await params;
-  const post = blogPosts.find((post) => post.slug === slug);
+  const post = blogPosts[locale].find((post) => post.slug === slug);
 
   if (!post) {
     return;
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: BlogParams) {
 
 export default async function Post({ params }: BlogParams) {
   const { locale, slug } = await params;
-  const post = blogPosts.find((post) => post.slug === slug);
+  const post = blogPosts[locale].find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -80,9 +80,9 @@ export default async function Post({ params }: BlogParams) {
             dateModified: post.publishedAt,
             author: {
               "@type": "Person",
-              name: person.name,
+              name: person[locale].name,
               url: `${baseURL}/${locale}/about`,
-              image: `${baseURL}${person.avatar}`,
+              image: `${baseURL}${person[locale].avatar}`,
             },
           }),
         }}

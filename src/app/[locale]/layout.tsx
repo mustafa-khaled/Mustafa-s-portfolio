@@ -5,8 +5,16 @@ import classNames from "classnames";
 import { Footer, Header, Providers } from "@/components";
 import { baseURL, fonts, style, home, effects } from "@/resources";
 import React from "react";
+import { Cairo } from "next/font/google";
 
 import { Locale, i18n } from "@/i18n-config";
+
+const cairo = Cairo({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
@@ -18,18 +26,19 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  const homeLocale = home[locale];
   return {
     metadataBase: new URL(baseURL),
     title: {
-      default: home.title,
-      template: `%s | ${home.title}`,
+      default: homeLocale.title,
+      template: `%s | ${homeLocale.title}`,
     },
-    description: home.description,
+    description: homeLocale.description,
     openGraph: {
-      title: home.title,
-      description: home.description,
+      title: homeLocale.title,
+      description: homeLocale.description,
       url: baseURL,
-      siteName: home.title,
+      siteName: homeLocale.title,
       locale: locale === "ar" ? "ar_EG" : "en_US",
       type: "website",
     },
@@ -62,7 +71,8 @@ export default async function RootLayout({
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
-        fonts.code.variable
+        fonts.code.variable,
+        cairo.variable
       )}
     >
       <head>
@@ -148,7 +158,7 @@ export default async function RootLayout({
               {children}
             </div>
           </main>
-          <Footer />
+          <Footer locale={locale} />
         </Providers>
       </body>
     </html>

@@ -45,19 +45,19 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    title: home.title,
-    description: home.description,
+    title: home[locale].title,
+    description: home[locale].description,
     alternates: {
       canonical: `${baseURL}/${locale}`,
     },
     openGraph: {
-      title: home.title,
-      description: home.description,
+      title: home[locale].title,
+      description: home[locale].description,
       url: `${baseURL}/${locale}`,
       images: [
         {
-          url: home.image,
-          alt: home.title,
+          url: home[locale].image,
+          alt: home[locale].title,
         },
       ],
     },
@@ -72,26 +72,33 @@ export default async function Home({
   const { locale } = await params;
   const dict = await getDictionary(locale);
 
+  const homeLocale = home[locale];
+  const aboutLocale = about[locale];
+
   const structure = [
     {
       title: dict.about.introduction,
-      display: about.intro.display,
+      display: aboutLocale.intro.display,
       items: [],
     },
     {
       title: dict.about.workExperience,
-      display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
+      display: aboutLocale.work.display,
+      items: aboutLocale.work.experiences.map(
+        (experience) => experience.company
+      ),
     },
     {
       title: dict.about.studies,
-      display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
+      display: aboutLocale.studies.display,
+      items: aboutLocale.studies.institutions.map(
+        (institution) => institution.name
+      ),
     },
     {
       title: dict.about.technicalSkills,
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.name),
+      display: aboutLocale.technical.display,
+      items: aboutLocale.technical.skills.map((skill) => skill.name),
     },
   ];
 
@@ -104,48 +111,51 @@ export default async function Home({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: about.title,
-            description: about.description,
+            name: aboutLocale.title,
+            description: aboutLocale.description,
             url: `${baseURL}/${locale}`,
             author: {
               "@type": "Person",
-              name: person.name,
-              jobTitle: person.role,
+              name: person[locale].name,
+              jobTitle: person[locale].role,
               url: `${baseURL}/${locale}/about`,
-              image: `${baseURL}${person.avatar}`,
+              image: `${baseURL}${person[locale].avatar}`,
             },
           }),
         }}
       />
 
-      {about.tableOfContent.display && (
-        <TableOfContents structure={structure} about={about} />
+      {aboutLocale.tableOfContent.display && (
+        <TableOfContents structure={structure} about={aboutLocale} />
       )}
 
       <div className="flex flex-col md:flex-row w-full justify-center gap-8 md:gap-12 pt-10">
-        <AboutAside person={person} display={about.avatar.display} />
+        <AboutAside
+          person={person[locale]}
+          display={aboutLocale.avatar.display}
+        />
 
         <article className="flex flex-col flex-[9] w-full mx-auto md:mx-0">
           <Hero
-            person={person}
+            person={person[locale]}
             social={social}
-            about={about}
-            featured={home.featured}
+            about={aboutLocale}
+            featured={homeLocale.featured}
             locale={locale}
           />
 
           <section className="flex flex-col w-full">
             <WorkExperience
-              work={{ ...about.work, title: dict.about.workExperience }}
+              work={{ ...aboutLocale.work, title: dict.about.workExperience }}
             />
 
             <Studies
-              studies={{ ...about.studies, title: dict.about.studies }}
+              studies={{ ...aboutLocale.studies, title: dict.about.studies }}
             />
 
             <TechnicalSkills
               technical={{
-                ...about.technical,
+                ...aboutLocale.technical,
                 title: dict.about.technicalSkills,
               }}
             />

@@ -11,7 +11,7 @@ interface PostsProps {
 }
 
 export function Posts({ range, exclude, locale = "en" }: PostsProps) {
-  let allPosts = [...blogPosts];
+  let allPosts = [...blogPosts[locale]];
 
   // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {

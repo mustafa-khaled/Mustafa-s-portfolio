@@ -10,15 +10,16 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+  const workLocale = work[locale];
   return {
-    title: work.title,
-    description: work.description,
+    title: workLocale.title,
+    description: workLocale.description,
     alternates: {
       canonical: `${baseURL}/${locale}/projects`,
     },
     openGraph: {
-      title: work.title,
-      description: work.description,
+      title: workLocale.title,
+      description: workLocale.description,
       url: `${baseURL}/${locale}/projects`,
     },
   };
@@ -32,6 +33,8 @@ export default async function ProjectsPage({
   const { locale } = await params;
   const dict = await getDictionary(locale);
 
+  const workLocale = work[locale];
+
   return (
     <div className="flex flex-col w-full max-w-5xl mx-auto pt-24 px-4 md:px-8">
       <script
@@ -40,14 +43,14 @@ export default async function ProjectsPage({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: work.title,
-            description: work.description,
+            name: workLocale.title,
+            description: workLocale.description,
             url: `${baseURL}/${locale}/projects`,
             author: {
               "@type": "Person",
-              name: person.name,
+              name: person[locale].name,
               url: `${baseURL}/${locale}/about`,
-              image: `${baseURL}${person.avatar}`,
+              image: `${baseURL}${person[locale].avatar}`,
             },
           }),
         }}

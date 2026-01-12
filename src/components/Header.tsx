@@ -79,7 +79,7 @@ export const Header = () => {
             <NavButton
               icon="grid"
               href={getPath("/projects")}
-              label={work.label}
+              label={work[locale].label}
               selected={pathname.startsWith(`/${locale}/projects`)}
               hideLabelOnMobile
             />
@@ -89,7 +89,7 @@ export const Header = () => {
             <NavButton
               icon="book"
               href={getPath("/blog")}
-              label={blog.label}
+              label={blog[locale].label}
               selected={pathname.startsWith(`/${locale}/blog`)}
               hideLabelOnMobile
             />

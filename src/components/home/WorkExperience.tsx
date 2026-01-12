@@ -32,7 +32,7 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ work }) => {
       <div className="flex flex-col w-full gap-8 relative">
         {/* Timeline line */}
         <div
-          className="absolute left-[22.5px] top-6 bottom-6 w-[3px] rounded-full pointer-events-none"
+          className="absolute start-[22.5px] top-6 bottom-6 w-[3px] rounded-full pointer-events-none"
           style={{
             background: "var(--brand-alpha-medium)",
           }}
@@ -70,7 +70,7 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ work }) => {
               </div>
 
               <ul
-                className="flex flex-col gap-2 list-disc pl-5 m-0 text-sm md:text-base text-[var(--neutral-on-background-medium)]"
+                className="flex flex-col gap-2 list-disc ps-5 m-0 text-sm md:text-base text-[var(--neutral-on-background-medium)]"
                 aria-label={`Achievements at ${experience.company}`}
               >
                 {experience.achievements.map((achievement, idx) => (
