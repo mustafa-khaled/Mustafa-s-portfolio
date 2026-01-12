@@ -121,9 +121,9 @@ const effects: EffectsConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "Person",
-  name: person.name,
-  description: home.description,
-  email: person.email || "",
+  name: person.en.name,
+  description: home.en.description,
+  email: person.en.email || "",
 };
 
 // social links

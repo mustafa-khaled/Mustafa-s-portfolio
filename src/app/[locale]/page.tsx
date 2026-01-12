@@ -41,9 +41,9 @@ import { getDictionary } from "@/lib/get-dictionary";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: Locale };
   return {
     title: home[locale].title,
     description: home[locale].description,
@@ -67,9 +67,9 @@ export async function generateMetadata({
 export default async function Home({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: Locale };
   const dict = await getDictionary(locale);
 
   const homeLocale = home[locale];

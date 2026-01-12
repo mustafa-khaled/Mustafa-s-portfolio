@@ -3,7 +3,7 @@
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import React from "react";
-import { routes, display, about, blog, work, gallery } from "@/resources";
+import { routes, display, about, blog, work } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import { iconLibrary } from "@/resources/icons";
 import classNames from "classnames";

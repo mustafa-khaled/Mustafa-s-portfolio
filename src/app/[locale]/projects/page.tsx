@@ -7,9 +7,9 @@ import { getDictionary } from "@/lib/get-dictionary";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: Locale };
   const workLocale = work[locale];
   return {
     title: workLocale.title,
@@ -28,9 +28,9 @@ export async function generateMetadata({
 export default async function ProjectsPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: Locale };
   const dict = await getDictionary(locale);
 
   const workLocale = work[locale];

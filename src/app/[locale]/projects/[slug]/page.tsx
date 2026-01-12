@@ -26,9 +26,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale; slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { locale, slug } = await params;
+  const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const project = projects[locale].find((p) => p.slug === slug);
 
   if (!project) return {};
@@ -56,9 +56,9 @@ export async function generateMetadata({
 export default async function Project({
   params,
 }: {
-  params: Promise<{ locale: Locale; slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale, slug } = await params;
+  const { locale, slug } = (await params) as { locale: Locale; slug: string };
   const project = projects[locale].find((p) => p.slug === slug);
 
   if (!project) {
