@@ -3,7 +3,7 @@
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import React from "react";
-import { routes, display, about, blog, work } from "@/resources";
+import { routes, display, about, work } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import { iconLibrary } from "@/resources/icons";
 import classNames from "classnames";
@@ -81,16 +81,6 @@ export const Header = () => {
               href={getPath("/projects")}
               label={work[locale].label}
               selected={pathname.startsWith(`/${locale}/projects`)}
-              hideLabelOnMobile
-            />
-          )}
-
-          {routes["/blog"] && (
-            <NavButton
-              icon="book"
-              href={getPath("/blog")}
-              label={blog[locale].label}
-              selected={pathname.startsWith(`/${locale}/blog`)}
               hideLabelOnMobile
             />
           )}

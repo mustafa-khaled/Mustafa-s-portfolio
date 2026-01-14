@@ -2,8 +2,7 @@
   "navigation": {
     "home": "الرئيسية",
     "about": "عني",
-    "projects": "المشاريع",
-    "blog": "المدونة"
+    "projects": "المشاريع"
   },
   "home": {
     "latestWork": "آخر الأعمال",

@@ -75,7 +75,7 @@ export default async function Project({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            "@type": "CreativeWork",
             headline: project.title,
             description: project.summary,
             datePublished: project.publishedAt,

@@ -2,8 +2,7 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "projects": "Projects",
-    "blog": "Blog"
+    "projects": "Projects"
   },
   "home": {
     "latestWork": "Latest Work",

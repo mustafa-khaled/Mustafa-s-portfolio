@@ -4,10 +4,8 @@ export {
   newsletter,
   home,
   about,
-  blog,
   work,
   projects,
-  blogPosts,
 } from "@/data";
 
 export {
@@ -19,6 +17,5 @@ export {
   style,
   schema,
   sameAs,
-  socialSharing,
   effects,
 } from "./once-ui.config";

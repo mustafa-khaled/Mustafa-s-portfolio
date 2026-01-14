@@ -1,20 +1,8 @@
-import {
-  baseURL,
-  routes as routesConfig,
-  blogPosts,
-  projects,
-} from "@/resources";
+import { baseURL, routes as routesConfig, projects } from "@/resources";
 import { i18n } from "@/i18n-config";
 
 export default async function sitemap() {
   const locales = i18n.locales;
-
-  const blogs = locales.flatMap((locale) =>
-    blogPosts[locale].map((post) => ({
-      url: `${baseURL}/${locale}/blog/${post.slug}`,
-      lastModified: post.publishedAt,
-    }))
-  );
 
   const works = locales.flatMap((locale) =>
     projects[locale].map((project) => ({
@@ -34,5 +22,5 @@ export default async function sitemap() {
     }))
   );
 
-  return [...routes, ...blogs, ...works];
+  return [...routes, ...works];
 }

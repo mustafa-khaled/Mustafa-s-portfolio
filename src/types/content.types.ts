@@ -192,12 +192,6 @@ export interface About extends BasePageConfig {
 }
 
 /**
- * Blog page configuration.
- * @description Configuration for the Blog page, including metadata and navigation label.
- */
-export interface Blog extends BasePageConfig {}
-
-/**
  * Work/projects page configuration.
  * @description Configuration for the Work/Projects page, including metadata and navigation label.
  */
@@ -242,18 +236,5 @@ export type Project = {
   link?: string;
   preview?: string;
   github?: string;
-  content: React.ReactNode;
-};
-
-/**
- * Blog post information.
- */
-export type BlogPost = {
-  slug: string;
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image?: string;
-  team?: TeamMember[];
   content: React.ReactNode;
 };

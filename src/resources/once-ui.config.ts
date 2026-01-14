@@ -6,7 +6,6 @@ import {
   RoutesConfig,
   SameAsConfig,
   SchemaConfig,
-  SocialSharingConfig,
   StyleConfig,
 } from "@/types";
 import { home, person } from "./index";
@@ -17,7 +16,6 @@ const baseURL: string = "https://demo.magic-portfolio.com";
 const routes: RoutesConfig = {
   "/": true,
   "/projects": true,
-  "/blog": true,
 };
 
 const display: DisplayConfig = {
@@ -133,22 +131,6 @@ const sameAs: SameAsConfig = {
   discord: "https://discord.com/invite/5EyAQ4eNdS",
 };
 
-// social sharing configuration for blog posts
-const socialSharing: SocialSharingConfig = {
-  display: true,
-  platforms: {
-    x: true,
-    linkedin: true,
-    facebook: false,
-    pinterest: false,
-    whatsapp: false,
-    reddit: false,
-    telegram: false,
-    email: true,
-    copyLink: true,
-  },
-};
-
 export {
   display,
   routes,
@@ -158,6 +140,5 @@ export {
   style,
   schema,
   sameAs,
-  socialSharing,
   effects,
 };
