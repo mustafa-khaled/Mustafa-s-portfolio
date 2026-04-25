@@ -13,8 +13,30 @@ const sharedProjects = [
       "/images/projects/resl-time-water-consumption/user-details.jpeg",
       "/images/projects/resl-time-water-consumption/settings.jpeg",
     ],
-    preview: "",
+    // preview: "",
     github: "https://github.com/mustafa-khaled/h2Ogo",
+  },
+  {
+    slug: "ship-and-storage",
+    publishedAt: "2026-03-01",
+    images: [
+      "/images/projects/ship-and-storage/cover.png",
+      "/images/projects/ship-and-storage/home.png",
+      "/images/projects/ship-and-storage/info1.png",
+      "/images/projects/ship-and-storage/info2.png",
+    ],
+    preview: "https://www.shipandstorage.com/",
+  },
+  {
+    slug: "luggage-to-ship",
+    publishedAt: "2026-04-01",
+    images: [
+      "/images/projects/luggage-to-ship/cover.png",
+      "/images/projects/luggage-to-ship/home.png",
+      "/images/projects/luggage-to-ship/about.png",
+      "/images/projects/luggage-to-ship/rate.png",
+    ],
+    preview: "https://www.luggagetoship.com/",
   },
   {
     slug: "pizzaco",
@@ -64,8 +86,29 @@ const sharedProjects = [
       "/images/projects/emar/careers.png",
       "/images/projects/emar/blog.png",
     ],
-    preview: "https://emaar-self.vercel.app/en",
+    // preview: "https://emaar-self.vercel.app/en",
     github: "https://github.com/mustafa-khaled/emaar",
+  },
+  {
+    slug: "new-capital",
+    publishedAt: "2024-11-14",
+    images: [
+      "/images/projects/new-capital/cover.png",
+      "/images/projects/new-capital/home.png",
+      "/images/projects/new-capital/about.png",
+      "/images/projects/new-capital/projects.png",
+    ],
+    preview: "https://newcapitalwebsite.netlify.app/",
+    github: "https://github.com/mustafa-khaled/Real-Estate-Website",
+  },
+  {
+    slug: "al-azhar-faculty-of-education",
+    publishedAt: "2025-06-01",
+    images: [
+      "/images/projects/al-azhar/cover.png",
+      "/images/projects/al-azhar/cover.png",
+    ],
+    preview: "https://education.azhar-edu.org/",
   },
 ];
 
@@ -335,6 +378,225 @@ const projectsEn = {
           <li>
             <strong>Server Actions</strong>: Handling complex state changes and
             CMS operations securely.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "al-azhar-faculty-of-education": {
+    title: "Al-Azhar University – Faculty of Education (Boys), Cairo",
+    summary:
+      "An official web portal for Al-Azhar University’s Faculty of Education (Boys) in Cairo, featuring the latest news, key services portals, and important institutional information.",
+    team: [
+      {
+        name: "Mustafa Khaled",
+        role: "Software Engineer",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>Overview</h2>
+        <p>
+          This project is the official portal for Al-Azhar University’s Faculty
+          of Education (Boys) in Cairo. It provides visitors with up-to-date
+          announcements, quick access to electronic services, and curated
+          resources for students, faculty members, employees, and graduates.
+        </p>
+
+        <h2>Key Sections</h2>
+        <ul>
+          <li>
+            <strong>News Ticker</strong>: Highlights the latest announcements and
+            faculty activities.
+          </li>
+          <li>
+            <strong>Electronic Services</strong>: Direct gateways for students,
+            faculty members, employees, and graduates.
+          </li>
+          <li>
+            <strong>College Vision & Mission</strong>: Clear statements of the
+            faculty’s direction and institutional objectives.
+          </li>
+          <li>
+            <strong>Important Links</strong>: Quick access to related Al-Azhar
+            platforms and quality assurance resources.
+          </li>
+        </ul>
+
+        <h2>Highlights</h2>
+        <p>
+          The faculty’s vision emphasizes excellence and leadership in
+          educational knowledge, expertise, and sustainable development—framed
+          by the global message of Al-Azhar Al-Sharif. The portal also supports a
+          structured experience for different audiences through dedicated
+          sub-portals.
+        </p>
+      </>
+    ),
+  },
+  "ship-and-storage": {
+    title: "Ship & Storage",
+    summary:
+      "A shipping and storage platform that makes it easy to send boxes to self-storage and request delivery back from anywhere, built with Next.js and TypeScript.",
+    team: [
+      {
+        name: "Mustafa Khaled",
+        role: "Software Engineer",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>Overview</h2>
+        <p>
+          Ship &amp; Storage combines shipping and storage to make it simple to
+          send boxes to self-storage and get them back when needed—even if
+          you’re in another city. It’s ideal for job relocation, study abroad,
+          summer vacations, and any situation where you need flexible storage
+          access without being physically present.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li>
+            <strong>Ship-to-Storage</strong>: Send items directly to storage and
+            manage them with a streamlined flow.
+          </li>
+          <li>
+            <strong>Delivery Back on Demand</strong>: Request your stored items
+            to be shipped back to you when you need them.
+          </li>
+          <li>
+            <strong>Convenient Shipping Services</strong>: Services like
+            ship-to-school, ship-to-office, and ship-to-home for common
+            relocation and travel use cases.
+          </li>
+          <li>
+            <strong>Remote-Friendly</strong>: Built for users who may be
+            traveling or living in a different city from their stored items.
+          </li>
+        </ul>
+
+        <h2>Technologies Used</h2>
+        <ul>
+          <li>
+            <strong>Next.js</strong>: For a fast, production-ready web
+            application with strong routing and rendering capabilities.
+          </li>
+          <li>
+            <strong>TypeScript</strong>: For safer, more maintainable code and a
+            better developer experience.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "luggage-to-ship": {
+    title: "LuggageToShip",
+    summary:
+      "A shipping platform that partners with FedEx and DHL for door-to-door delivery, enabling online booking and worldwide shipping to 220+ countries.",
+    team: [
+      {
+        name: "Mustafa Khaled",
+        role: "Software Engineer",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>Overview</h2>
+        <p>
+          LuggageToShip is a shipping platform that partners with FedEx and DHL
+          to handle door-to-door delivery for luggage, boxes, and more. Orders
+          are completed online, making it easy to ship internationally with
+          coverage across 220+ countries.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li>
+            <strong>Door-to-Door Shipping</strong>: A streamlined flow for
+            shipping from pickup to destination.
+          </li>
+          <li>
+            <strong>Carrier Partnerships</strong>: Works with trusted logistics
+            partners like FedEx and DHL.
+          </li>
+          <li>
+            <strong>Online Booking</strong>: Place and manage shipping orders
+            fully online.
+          </li>
+          <li>
+            <strong>Global Coverage</strong>: Reach destinations in 220+
+            countries.
+          </li>
+        </ul>
+
+        <h2>Technologies Used</h2>
+        <ul>
+          <li>
+            <strong>Web Platform</strong>: A modern shipping web application
+            focused on speed, clarity, and conversion.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "new-capital": {
+    title: "New Capital",
+    summary:
+      "A modern real estate website built with React and Tailwind CSS, featuring smooth navigation, project browsing, and responsive, visually rich pages.",
+    team: [
+      {
+        name: "Mustafa Khaled",
+        role: "Software Engineer",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>Overview</h2>
+        <p>
+          New Capital is a modern real estate web experience designed to help
+          users explore real estate projects through a clean UI and smooth
+          interactions. It focuses on visual presentation, intuitive navigation,
+          and a responsive layout that works well across devices.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li>
+            <strong>Project Browsing</strong>: Explore featured real estate
+            projects with clear sections and visuals.
+          </li>
+          <li>
+            <strong>Smooth Navigation & Animations</strong>: A polished browsing
+            experience with subtle motion and seamless transitions.
+          </li>
+          <li>
+            <strong>Responsive UI</strong>: Layouts optimized for mobile, tablet,
+            and desktop screens.
+          </li>
+          <li>
+            <strong>Showcase Pages</strong>: Structured pages such as Home,
+            About, and Projects to present information consistently.
+          </li>
+        </ul>
+
+        <h2>Technologies Used</h2>
+        <ul>
+          <li>
+            <strong>React</strong>: For building interactive UI components and a
+            smooth single-page experience.
+          </li>
+          <li>
+            <strong>Tailwind CSS</strong>: For fast, consistent styling and a
+            responsive layout system.
           </li>
         </ul>
       </>
@@ -660,6 +922,219 @@ const projectsAr = {
           <li>
             <strong>Server Actions</strong>: التعامل مع تغييرات الحالة المعقدة
             وعمليات CMS بشكل آمن.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "al-azhar-faculty-of-education": {
+    title: "كلية التربية بنين القاهرة – جامعة الأزهر",
+    summary:
+      "بوابة إلكترونية رسمية لكلية التربية بنين القاهرة بجامعة الأزهر، تعرض أحدث الأخبار والفعاليات وتوفر روابط مباشرة للخدمات الإلكترونية والبوابات الفرعية والفئات المستهدفة.",
+    team: [
+      {
+        name: "مصطفى خالد",
+        role: "مهندس برمجيات",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>نظرة عامة</h2>
+        <p>
+          يقدّم هذا المشروع بوابة الكلية الرسمية لكلية التربية بنين القاهرة
+          بجامعة الأزهر، ويهدف إلى إتاحة المعلومات الأساسية والروابط الخدمية
+          بسرعة، بالإضافة إلى عرض الأخبار والفعاليات بشكل مستمر.
+        </p>
+
+        <h2>رؤية الكلية</h2>
+        <p>
+          تتطلع كلية التربية إلى تحقيق التميز والريادة محلياً وإقليمياً وعالمياً
+          في المعرفة والخبرة التربوية والتنمية المستدامة في إطار عالمية رسالة
+          الأزهر الشريف.
+        </p>
+
+        <h2>رسالة/التزام الكلية</h2>
+        <p>
+          تلتزم الكلية بتوفير بيئة مؤسسية وتعليمية محفزة تسعى إلى الارتقاء ببرامج
+          إعداد وتأهيل المعلم والكوادر التربوية لتلبية احتياجات سوق العمل، والتجديد
+          في المعرفة التربوية من خلال البحث العلمي، وتزويد المجتمع بالخبرات
+          والاستشارات التربوية والنفسية والفنية والاجتماعية.
+        </p>
+
+        <h2>أقسام رئيسية</h2>
+        <ul>
+          <li>
+            <strong>شريط الأخبار</strong>: يعرض أحدث الجلسات والفعاليات والأخبار
+            المتكررة بصورة سريعة.
+          </li>
+          <li>
+            <strong>الخدمات الإلكترونية</strong>: روابط مخصصة للطلاب، وأعضاء هيئة
+            التدريس، والموظفين، والخريجين.
+          </li>
+          <li>
+            <strong>روابط هامة</strong>: مثل بوابة الأزهر الشريف الإلكترونية،
+            جامعة الأزهر الشريف، والهيئة القومية لضمان الجودة والاعتماد.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "ship-and-storage": {
+    title: "شيب آند ستوريدج (Ship & Storage)",
+    summary:
+      "منصة تجمع بين الشحن والتخزين لتسهيل إرسال الصناديق إلى التخزين واستلامها مرة أخرى من أي مكان، تم بناؤها باستخدام Next.js و TypeScript.",
+    team: [
+      {
+        name: "مصطفى خالد",
+        role: "مهندس برمجيات",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>نظرة عامة</h2>
+        <p>
+          شيب آند ستوريدج يجمع بين الشحن والتخزين، ويجعل من السهل إرسال الصناديق
+          إلى التخزين واستلامها مرة أخرى عند الحاجة—even إذا كنت في مدينة أخرى.
+          هذه الخدمة مناسبة لحالات مثل الانتقال للعمل، الدراسة بالخارج، والعطلات
+          الصيفية.
+        </p>
+
+        <h2>الميزات الرئيسية</h2>
+        <ul>
+          <li>
+            <strong>الشحن إلى التخزين</strong>: إرسال الأغراض مباشرة إلى وحدات
+            التخزين وإدارتها بخطوات واضحة.
+          </li>
+          <li>
+            <strong>إرجاع الأغراض عند الطلب</strong>: إمكانية طلب شحن الأغراض
+            المخزنة إليك في الوقت المناسب.
+          </li>
+          <li>
+            <strong>خدمات متنوعة</strong>: مثل الشحن إلى المدرسة، المكتب، أو
+            المنزل وفقًا لاحتياجات السفر والتنقل.
+          </li>
+          <li>
+            <strong>مناسب للاستخدام عن بُعد</strong>: تصميم وتجربة تدعم إدارة
+            الأغراض أثناء السفر أو الإقامة في مدينة مختلفة.
+          </li>
+        </ul>
+
+        <h2>التقنيات المستخدمة</h2>
+        <ul>
+          <li>
+            <strong>Next.js</strong>: لبناء تطبيق ويب سريع وجاهز للإنتاج بقدرات
+            قوية في التوجيه والعرض.
+          </li>
+          <li>
+            <strong>TypeScript</strong>: لكتابة كود أكثر أمانًا وسهولة في
+            الصيانة.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "luggage-to-ship": {
+    title: "لاجيج تو شيب (LuggageToShip)",
+    summary:
+      "منصة شحن تتعاون مع FedEx و DHL لتقديم خدمة توصيل من الباب إلى الباب، مع إمكانية إتمام الطلب عبر الإنترنت والشحن لأكثر من 220 دولة.",
+    team: [
+      {
+        name: "مصطفى خالد",
+        role: "مهندس برمجيات",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>نظرة عامة</h2>
+        <p>
+          لاجيج تو شيب هي منصة شحن تتعاون مع FedEx و DHL لتلبية احتياجات الشحن
+          من الباب إلى الباب. يتم إتمام جميع طلبات الشحن عبر الإنترنت بسهولة،
+          مع تغطية تصل إلى أكثر من 220 دولة حول العالم.
+        </p>
+
+        <h2>الميزات الرئيسية</h2>
+        <ul>
+          <li>
+            <strong>شحن من الباب إلى الباب</strong>: تجربة مبسطة من الاستلام وحتى
+            الوصول للوجهة.
+          </li>
+          <li>
+            <strong>شركاء لوجستيون موثوقون</strong>: التعاون مع شركات مثل FedEx و
+            DHL لتقديم خيارات شحن فعالة.
+          </li>
+          <li>
+            <strong>إتمام الطلب عبر الإنترنت</strong>: إنشاء وإدارة طلبات الشحن
+            بالكامل من خلال الموقع.
+          </li>
+          <li>
+            <strong>تغطية عالمية</strong>: الوصول إلى وجهات في أكثر من 220 دولة.
+          </li>
+        </ul>
+
+        <h2>التقنيات المستخدمة</h2>
+        <ul>
+          <li>
+            <strong>تطبيق ويب للشحن</strong>: منصة حديثة تركّز على السرعة ووضوح
+            الخطوات وتجربة المستخدم.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  "new-capital": {
+    title: "نيو كابيتال (New Capital)",
+    summary:
+      "موقع عقاري عصري تم بناؤه باستخدام React و Tailwind CSS لعرض المشروعات والعقارات بواجهة جذابة وتجربة تصفح سلسة ومتجاوبة.",
+    team: [
+      {
+        name: "مصطفى خالد",
+        role: "مهندس برمجيات",
+        avatar: "/images/avatar.jpg",
+        linkedIn: "https://www.linkedin.com/in/mustafa-khaled-/",
+      },
+    ],
+    content: (
+      <>
+        <h2>نظرة عامة</h2>
+        <p>
+          نيو كابيتال هو تجربة ويب حديثة لعرض المحتوى العقاري والمشروعات بطريقة
+          منظمة وبصرية. يركز على سهولة التنقل، صفحات واضحة، وتصميم متجاوب يعمل
+          بكفاءة عبر مختلف أحجام الشاشات.
+        </p>
+
+        <h2>الميزات الرئيسية</h2>
+        <ul>
+          <li>
+            <strong>تصفح المشروعات</strong>: استعراض المشروعات العقارية بشكل منظم
+            مع أقسام واضحة وصور داعمة.
+          </li>
+          <li>
+            <strong>تجربة سلسة وحركات بسيطة</strong>: تمرير وتنقل ناعم مع مؤثرات
+            خفيفة لتحسين تجربة المستخدم.
+          </li>
+          <li>
+            <strong>واجهة متجاوبة</strong>: تحسين العرض للهواتف والأجهزة اللوحية
+            وسطح المكتب.
+          </li>
+          <li>
+            <strong>صفحات عرض أساسية</strong>: مثل الرئيسية، من نحن، والمشروعات
+            لعرض المعلومات بشكل متسق.
+          </li>
+        </ul>
+
+        <h2>التقنيات المستخدمة</h2>
+        <ul>
+          <li>
+            <strong>React</strong>: لبناء واجهة تفاعلية وتجربة تصفح سلسة.
+          </li>
+          <li>
+            <strong>Tailwind CSS</strong>: لتنسيق سريع ومتسق وتصميم متجاوب.
           </li>
         </ul>
       </>
