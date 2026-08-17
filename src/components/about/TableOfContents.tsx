@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import classNames from "classnames";
+import type React from "react";
 
 interface TableOfContentsProps {
   structure: {
@@ -18,10 +17,7 @@ interface TableOfContentsProps {
   };
 }
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({
-  structure,
-  about,
-}) => {
+const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
   const scrollTo = (id: string, offset: number) => {
     const element = document.getElementById(id);
     if (element) {

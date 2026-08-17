@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 
 interface StudiesProps {
   studies: {
@@ -18,10 +18,7 @@ export const Studies: React.FC<StudiesProps> = ({ studies, id }) => {
   if (!studies.display) return null;
 
   return (
-    <section
-      className="flex flex-col w-full mb-16"
-      aria-labelledby={id || "studies-title"}
-    >
+    <section className="flex flex-col w-full mb-16" aria-labelledby={id || "studies-title"}>
       <h2
         id={id || "studies-title"}
         className="text-2xl md:text-3xl font-bold mb-6 text-[var(--neutral-on-background-strong)]"

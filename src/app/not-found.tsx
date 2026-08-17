@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -14,7 +13,7 @@ export default function NotFound() {
         The page you are looking for does not exist.
       </p>
       <Link
-        href="/"
+        href="/en"
         className="px-6 py-3 rounded-xl bg-[var(--brand-solid-strong)] text-white font-bold transition-all hover:scale-105 active:scale-95 shadow-lg"
       >
         Go back home

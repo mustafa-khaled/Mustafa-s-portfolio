@@ -1,5 +1,5 @@
-import { About } from "@/types";
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
+import type { About } from "@/types";
 import { person } from "../person";
 
 const technicalSkills = [
@@ -42,19 +42,17 @@ export const about: Record<Locale, About> = {
       description: (
         <p className="space-y-3">
           I build software that runs real businesses.
+          <br className="my-1 block" />I help founders and CEOs turn ideas, legacy systems, and
+          messy operations into clear, scalable platforms.
           <br className="my-1 block" />
-          I help founders and CEOs turn ideas, legacy systems, and messy
-          operations into clear, scalable platforms.
+          From dashboards and invoicing systems to internal tools and customer-facing apps, I design
+          and ship software that supports real workflows — not just pretty screens.
           <br className="my-1 block" />
-          From dashboards and invoicing systems to internal tools and
-          customer-facing apps, I design and ship software that supports real
-          workflows — not just pretty screens.
+          My job isn’t to write code. It’s to turn business goals into systems that stay fast,
+          reliable, and easy to scale as the company grows.
           <br className="my-1 block" />
-          My job isn’t to write code. It’s to turn business goals into systems
-          that stay fast, reliable, and easy to scale as the company grows.
-          <br className="my-1 block" />
-          If your product feels slow, fragile, or hard to extend, I help rebuild
-          it into something modern, stable, and ready for growth.
+          If your product feels slow, fragile, or hard to extend, I help rebuild it into something
+          modern, stable, and ready for growth.
         </p>
       ),
     },
@@ -133,17 +131,17 @@ export const about: Record<Locale, About> = {
       title: "مقدمة",
       description: (
         <p className="space-y-3">
-          أنا بشتغل مع أصحاب الشركات والمؤسسين عشان أحوّل أفكارهم وأنظمتهم
-          القديمة أو المعقدة إلى منتجات رقمية واضحة وسهلة التوسع.
+          أنا بشتغل مع أصحاب الشركات والمؤسسين عشان أحوّل أفكارهم وأنظمتهم القديمة أو المعقدة إلى
+          منتجات رقمية واضحة وسهلة التوسع.
           <br />
-          مش بعمل “مواقع” وخلاص أنا ببني منصات، داشبوردات، أنظمة فواتير،
-          وأدوات داخلية بتشغل البيزنس يوميًا.
+          مش بعمل “مواقع” وخلاص أنا ببني منصات، داشبوردات، أنظمة فواتير، وأدوات داخلية بتشغل البيزنس
+          يوميًا.
           <br />
-          دوري مش بس أكتب كود، دوري أفهم البيزنس الأول، وبعدها أحوّله لنظام
-          شغال، ثابت، ويقدر يكبر من غير ما ينهار.
+          دوري مش بس أكتب كود، دوري أفهم البيزنس الأول، وبعدها أحوّله لنظام شغال، ثابت، ويقدر يكبر من
+          غير ما ينهار.
           <br />
-          لو عندك منتج أو سيستم حاسس إنه تقيل، ملخبط، أو صعب يتطور، أنا بساعدك
-          تعيد بناءه بشكل حديث، منظم، وجاهز للنمو.
+          لو عندك منتج أو سيستم حاسس إنه تقيل، ملخبط، أو صعب يتطور، أنا بساعدك تعيد بناءه بشكل حديث،
+          منظم، وجاهز للنمو.
         </p>
       ),
     },

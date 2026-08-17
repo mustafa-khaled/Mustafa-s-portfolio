@@ -1,21 +1,21 @@
 export {
-  person,
-  social,
-  newsletter,
-  home,
   about,
-  work,
+  home,
+  newsletter,
+  person,
   projects,
+  social,
+  work,
 } from "@/data";
 
 export {
-  display,
-  routes,
-  protectedRoutes,
   baseURL,
-  fonts,
-  style,
-  schema,
-  sameAs,
+  display,
   effects,
+  fonts,
+  protectedRoutes,
+  routes,
+  sameAs,
+  schema,
+  style,
 } from "./once-ui.config";

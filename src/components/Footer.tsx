@@ -1,10 +1,8 @@
+import Link from "next/link";
+import React from "react";
+import type { Locale } from "@/i18n-config";
 import { person, social } from "@/resources";
 import { iconLibrary } from "@/resources/icons";
-import React from "react";
-import Link from "next/link";
-import classNames from "classnames";
-
-import { Locale } from "@/i18n-config";
 
 interface FooterProps {
   locale?: Locale;
@@ -17,9 +15,7 @@ export const Footer = ({ locale = "en" }: FooterProps) => {
     <footer className="flex flex-col items-center w-full p-2">
       <div className="flex flex-col md:flex-row w-full max-w-[var(--static-width-m)] py-2 px-4 gap-4 justify-between items-center bg-[var(--page-background)] border border-[var(--neutral-alpha-weak)] rounded-2xl shadow-sm">
         <div className="text-sm font-medium text-[var(--neutral-on-background-strong)]">
-          <span className="text-[var(--neutral-on-background-weak)] me-1">
-            © {currentYear} /
-          </span>
+          <span className="text-[var(--neutral-on-background-weak)] me-1">© {currentYear} /</span>
           <span>{person[locale].name}</span>
         </div>
         <div className="flex gap-4">
@@ -36,12 +32,11 @@ export const Footer = ({ locale = "en" }: FooterProps) => {
                 >
                   {item.icon &&
                     iconLibrary[item.icon as keyof typeof iconLibrary] &&
-                    React.createElement(
-                      iconLibrary[item.icon as keyof typeof iconLibrary],
-                      { size: 18 }
-                    )}
+                    React.createElement(iconLibrary[item.icon as keyof typeof iconLibrary], {
+                      size: 18,
+                    })}
                 </Link>
-              )
+              ),
           )}
         </div>
       </div>

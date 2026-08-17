@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 
 interface WorkExperienceProps {
   work: {
@@ -20,10 +20,7 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ work, id }) => {
   if (!work.display) return null;
 
   return (
-    <section
-      className="flex flex-col w-full mb-16"
-      aria-labelledby={id || "work-title"}
-    >
+    <section className="flex flex-col w-full mb-16" aria-labelledby={id || "work-title"}>
       <h2
         id={id || "work-title"}
         className="text-2xl md:text-3xl font-bold mb-8 text-[var(--neutral-on-background-strong)]"
@@ -75,10 +72,7 @@ export const WorkExperience: React.FC<WorkExperienceProps> = ({ work, id }) => {
                 aria-label={`Achievements at ${experience.company}`}
               >
                 {experience.achievements.map((achievement, idx) => (
-                  <li
-                    key={`${experience.company}-achievement-${idx}`}
-                    className="leading-relaxed"
-                  >
+                  <li key={`${experience.company}-achievement-${idx}`} className="leading-relaxed">
                     {achievement}
                   </li>
                 ))}

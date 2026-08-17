@@ -1,4 +1,4 @@
-import {
+import type {
   DisplayConfig,
   EffectsConfig,
   FontsConfig,
@@ -26,8 +26,7 @@ const display: DisplayConfig = {
 
 const protectedRoutes: ProtectedRoutesConfig = {};
 
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 const heading = Geist({
   variable: "--font-heading",
@@ -131,14 +130,4 @@ const sameAs: SameAsConfig = {
   discord: "https://discord.com/invite/5EyAQ4eNdS",
 };
 
-export {
-  display,
-  routes,
-  protectedRoutes,
-  baseURL,
-  fonts,
-  style,
-  schema,
-  sameAs,
-  effects,
-};
+export { baseURL, display, effects, fonts, protectedRoutes, routes, sameAs, schema, style };

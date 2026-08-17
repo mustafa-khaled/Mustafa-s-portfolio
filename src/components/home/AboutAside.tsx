@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { iconLibrary } from "@/resources/icons";
 import classNames from "classnames";
+import Image from "next/image";
+import React from "react";
+import { iconLibrary } from "@/resources/icons";
 
 interface AboutAsideProps {
   person: {
@@ -21,7 +21,7 @@ export const AboutAside: React.FC<AboutAsideProps> = ({ person, display }) => {
   return (
     <aside
       className={classNames(
-        "sticky top-24 h-fit md:flex flex-col items-center min-w-[160px] px-6 pb-12 gap-6 flex-[3] hidden lg:flex"
+        "sticky top-24 h-fit md:flex flex-col items-center min-w-[160px] px-6 pb-12 gap-6 flex-[3] hidden lg:flex",
       )}
       aria-label="About Mustafa Khaled"
     >
@@ -43,11 +43,8 @@ export const AboutAside: React.FC<AboutAsideProps> = ({ person, display }) => {
         <span>{person.location}</span>
       </div>
       {person.languages && person.languages.length > 0 && (
-        <div
-          className="flex flex-wrap gap-2 justify-center"
-          aria-label="Spoken languages"
-        >
-          {person.languages.map((language, index) => (
+        <div className="flex flex-wrap gap-2 justify-center" aria-label="Spoken languages">
+          {person.languages.map((language, _index) => (
             <span
               key={language}
               className="px-3 py-1 text-xs font-semibold rounded-full bg-[var(--neutral-alpha-weak)] text-[var(--neutral-on-background-strong)] border border-[var(--neutral-alpha-medium)]"

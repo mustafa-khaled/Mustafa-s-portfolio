@@ -1,8 +1,6 @@
-import { projects } from "@/resources";
 import { ProjectCard } from "@/components";
-import React from "react";
-
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
+import { projects } from "@/resources";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -15,15 +13,11 @@ export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
 
   // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {
-    allProjects = allProjects.filter(
-      (project) => !exclude.includes(project.slug)
-    );
+    allProjects = allProjects.filter((project) => !exclude.includes(project.slug));
   }
 
   const sortedProjects = allProjects.sort((a, b) => {
-    return (
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    );
+    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
   });
 
   const displayedProjects = range
@@ -31,10 +25,7 @@ export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
     : sortedProjects;
 
   return (
-    <ul
-      className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10"
-      aria-label="Projects list"
-    >
+    <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10" aria-label="Projects list">
       {displayedProjects.map((project, index) => (
         <li key={project.slug}>
           <ProjectCard

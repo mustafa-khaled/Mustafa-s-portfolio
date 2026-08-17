@@ -1,8 +1,7 @@
-import { home, baseURL, about, person, social } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import React from "react";
 import dynamic from "next/dynamic";
-import { Hero, AboutAside } from "@/components/home";
+import TableOfContents from "@/components/about/TableOfContents";
+import { AboutAside, Hero } from "@/components/home";
+import { about, baseURL, home, person, social } from "@/resources";
 
 // Lazy load sections for better initial performance
 const WorkExperience = dynamic(
@@ -12,18 +11,15 @@ const WorkExperience = dynamic(
       <div className="h-96 w-full animate-pulse bg-[var(--surface)] rounded-2xl mb-16" />
     ),
     ssr: true,
-  }
+  },
 );
 
-const Studies = dynamic(
-  () => import("@/components/home").then((mod) => mod.Studies),
-  {
-    loading: () => (
-      <div className="h-48 w-full animate-pulse bg-[var(--surface)] rounded-2xl mb-16" />
-    ),
-    ssr: true,
-  }
-);
+const Studies = dynamic(() => import("@/components/home").then((mod) => mod.Studies), {
+  loading: () => (
+    <div className="h-48 w-full animate-pulse bg-[var(--surface)] rounded-2xl mb-16" />
+  ),
+  ssr: true,
+});
 
 const TechnicalSkills = dynamic(
   () => import("@/components/home").then((mod) => mod.TechnicalSkills),
@@ -32,17 +28,13 @@ const TechnicalSkills = dynamic(
       <div className="h-48 w-full animate-pulse bg-[var(--surface)] rounded-2xl mb-16" />
     ),
     ssr: true,
-  }
+  },
 );
 
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/get-dictionary";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = (await params) as { locale: Locale };
   return {
     title: home[locale].title,
@@ -64,11 +56,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = (await params) as { locale: Locale };
   const dict = await getDictionary(locale);
 
@@ -86,17 +74,13 @@ export default async function Home({
       title: dict.about.workExperience,
       id: "about-work",
       display: aboutLocale.work.display,
-      items: aboutLocale.work.experiences.map(
-        (experience) => experience.company
-      ),
+      items: aboutLocale.work.experiences.map((experience) => experience.company),
     },
     {
       title: dict.about.studies,
       id: "about-studies",
       display: aboutLocale.studies.display,
-      items: aboutLocale.studies.institutions.map(
-        (institution) => institution.name
-      ),
+      items: aboutLocale.studies.institutions.map((institution) => institution.name),
     },
     {
       title: dict.about.technicalSkills,
@@ -134,10 +118,7 @@ export default async function Home({
       )}
 
       <div className="flex flex-col md:flex-row w-full justify-center gap-8 md:gap-12 pt-10">
-        <AboutAside
-          person={person[locale]}
-          display={aboutLocale.avatar.display}
-        />
+        <AboutAside person={person[locale]} display={aboutLocale.avatar.display} />
 
         <article className="flex flex-col flex-[9] w-full mx-auto md:mx-0">
           <Hero

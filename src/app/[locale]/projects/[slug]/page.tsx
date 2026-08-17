@@ -1,15 +1,14 @@
-import { notFound } from "next/navigation";
-import { baseURL, person, projects } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
-
-import { Locale, i18n } from "@/i18n-config";
-import { getDictionary } from "@/lib/get-dictionary";
 import { ProjectImages } from "@/components";
+import { i18n, type Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/get-dictionary";
+import { baseURL, person, projects } from "@/resources";
 import { iconLibrary } from "@/resources/icons";
+import { formatDate } from "@/utils/formatDate";
 
 export async function generateStaticParams() {
   const params: { locale: Locale; slug: string }[] = [];
@@ -80,9 +79,7 @@ export default async function Project({
             description: project.summary,
             datePublished: project.publishedAt,
             dateModified: project.publishedAt,
-            image: `/api/og/generate?title=${encodeURIComponent(
-              project.title
-            )}`,
+            image: `/api/og/generate?title=${encodeURIComponent(project.title)}`,
             author: {
               "@type": "Person",
               name: person[locale].name,
@@ -114,23 +111,14 @@ export default async function Project({
                   key={member.name}
                   className="relative w-8 h-8 rounded-full border-2 border-[var(--page-background)] overflow-hidden"
                 >
-                  <Image
-                    src={member.avatar}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={member.avatar} alt={member.name} fill className="object-cover" />
                 </div>
               ))}
             </div>
             <div className="text-sm font-medium text-[var(--brand-weak)]">
               {project.team.map((member, idx) => (
                 <React.Fragment key={member.name}>
-                  {idx > 0 && (
-                    <span className="text-[var(--neutral-on-background-weak)]">
-                      ,{" "}
-                    </span>
-                  )}
+                  {idx > 0 && <span className="text-[var(--neutral-on-background-weak)]">, </span>}
                   {member.linkedIn ? (
                     <Link
                       href={member.linkedIn}

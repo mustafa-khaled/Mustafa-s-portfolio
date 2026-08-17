@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
 interface ProjectImagesProps {
@@ -64,9 +64,7 @@ export const ProjectImages = ({ images, title }: ProjectImagesProps) => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex
-                    ? "bg-white w-4"
-                    : "bg-white/50 hover:bg-white/80"
+                  index === currentIndex ? "bg-white w-4" : "bg-white/50 hover:bg-white/80"
                 }`}
                 aria-label={`Go to image ${index + 1}`}
               />

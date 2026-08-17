@@ -1,13 +1,11 @@
 import "../globals.css";
 
 import classNames from "classnames";
-
-import { Footer, Header, Providers } from "@/components";
-import { baseURL, fonts, style, home, effects } from "@/resources";
-import React from "react";
 import { Cairo } from "next/font/google";
-
-import { Locale, i18n } from "@/i18n-config";
+import type React from "react";
+import { Footer, Header, Providers, ThemeScript } from "@/components";
+import { i18n, type Locale } from "@/i18n-config";
+import { baseURL, effects, fonts, home, style } from "@/resources";
 
 const cairo = Cairo({
   subsets: ["arabic"],
@@ -20,11 +18,7 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = (await params) as { locale: Locale };
   const homeLocale = home[locale];
   return {
@@ -66,74 +60,27 @@ export default async function RootLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
+      data-brand={style.brand}
+      data-accent={style.accent}
+      data-neutral={style.neutral}
+      data-solid={style.solid}
+      data-solid-style={style.solidStyle}
+      data-border={style.border}
+      data-surface={style.surface}
+      data-transition={style.transition}
+      data-scaling={style.scaling}
       className={classNames(
         "flex min-h-screen w-full",
         fonts.heading.variable,
         fonts.body.variable,
         fonts.label.variable,
         fonts.code.variable,
-        cairo.variable
+        cairo.variable,
       )}
     >
-      <head>
-        <script
-          id="theme-init"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const root = document.documentElement;
-                  const defaultTheme = 'system';
-                  
-                  // Set defaults from config
-                  const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    "solid-style": style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                  })};
-                  
-                  // Apply default values
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
-                } catch (e) {
-                  console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
+      <head />
       <body className="flex flex-col items-center w-full min-h-screen m-0 p-0 bg-[var(--page-background)] selection:bg-[var(--brand-alpha-medium)] selection:text-[var(--brand-on-background-strong)]">
+        <ThemeScript />
         <Providers>
           {/* Background Effects */}
           <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
@@ -154,9 +101,7 @@ export default async function RootLayout({
 
           <Header />
           <main className="flex flex-col items-center w-full grow px-4 md:px-8 z-0">
-            <div className="flex flex-col items-center w-full min-h-0 grow">
-              {children}
-            </div>
+            <div className="flex flex-col items-center w-full min-h-0 grow">{children}</div>
           </main>
           <Footer locale={locale} />
         </Providers>

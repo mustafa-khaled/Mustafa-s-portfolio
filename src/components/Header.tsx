@@ -1,13 +1,13 @@
 "use client";
 
-import { useParams, usePathname } from "next/navigation";
-import Link from "next/link";
-import React from "react";
-import { routes, display, about, work } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
-import { iconLibrary } from "@/resources/icons";
 import classNames from "classnames";
-import { Locale } from "@/i18n-config";
+import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
+import React from "react";
+import type { Locale } from "@/i18n-config";
+import { display, routes, work } from "@/resources";
+import { iconLibrary } from "@/resources/icons";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface NavButtonProps {
   href: string;
@@ -17,13 +17,7 @@ interface NavButtonProps {
   hideLabelOnMobile?: boolean;
 }
 
-const NavButton = ({
-  href,
-  icon,
-  label,
-  selected,
-  hideLabelOnMobile,
-}: NavButtonProps) => {
+const NavButton = ({ href, icon, label, selected, hideLabelOnMobile }: NavButtonProps) => {
   const IconComponent = iconLibrary[icon as keyof typeof iconLibrary];
 
   return (
@@ -33,16 +27,13 @@ const NavButton = ({
         "flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200",
         selected
           ? "bg-[var(--neutral-alpha-medium)] text-[var(--neutral-on-background-strong)] shadow-sm"
-          : "text-[var(--neutral-on-background-weak)] hover:bg-[var(--neutral-alpha-weak)] hover:text-[var(--neutral-on-background-strong)]"
+          : "text-[var(--neutral-on-background-weak)] hover:bg-[var(--neutral-alpha-weak)] hover:text-[var(--neutral-on-background-strong)]",
       )}
     >
       {IconComponent && <IconComponent size={18} />}
       {label && (
         <span
-          className={classNames(
-            "text-sm font-medium",
-            hideLabelOnMobile ? "hidden md:inline" : ""
-          )}
+          className={classNames("text-sm font-medium", hideLabelOnMobile ? "hidden md:inline" : "")}
         >
           {label}
         </span>
@@ -89,10 +80,7 @@ export const Header = () => {
 
           {/* Locale Switcher */}
           <Link
-            href={pathname.replace(
-              `/${locale}`,
-              locale === "en" ? "/ar" : "/en"
-            )}
+            href={pathname.replace(`/${locale}`, locale === "en" ? "/ar" : "/en")}
             className="px-3 py-1 text-xs font-bold uppercase rounded-md hover:bg-[var(--neutral-alpha-weak)] transition-colors"
           >
             {locale === "en" ? "عربي" : "EN"}

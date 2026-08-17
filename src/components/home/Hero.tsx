@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import classNames from "classnames";
+import React from "react";
 import { iconLibrary } from "@/resources/icons";
 
 interface HeroProps {
@@ -52,27 +52,21 @@ export const Hero: React.FC<HeroProps> = ({
       {about.avatar.display && (
         <div className="flex lg:hidden justify-center mb-6">
           <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-[var(--neutral-alpha-weak)] shadow-lg">
-            <Image
-              src={person.avatar}
-              alt={person.name}
-              fill
-              className="object-cover"
-              priority
-            />
+            <Image src={person.avatar} alt={person.name} fill className="object-cover" priority />
           </div>
         </div>
       )}
       <h1
         id="hero-title"
         className={classNames(
-          "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--neutral-on-background-strong)] mb-4 text-center md:text-start"
+          "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--neutral-on-background-strong)] mb-4 text-center md:text-start",
         )}
       >
         {person.name}
       </h1>
       <p
         className={classNames(
-          "text-xl md:text-2xl text-[var(--neutral-on-background-weak)] font-medium text-center md:text-start"
+          "text-xl md:text-2xl text-[var(--neutral-on-background-weak)] font-medium text-center md:text-start",
         )}
       >
         {person.role}
@@ -96,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({
       {social.length > 0 && (
         <nav
           className={classNames(
-            "flex flex-wrap items-center justify-center md:justify-start gap-3 pt-8 pb-4"
+            "flex flex-wrap items-center justify-center md:justify-start gap-3 pt-8 pb-4",
           )}
           aria-label="Social media links"
         >
@@ -113,13 +107,12 @@ export const Hero: React.FC<HeroProps> = ({
                 >
                   {item.icon &&
                     iconLibrary[item.icon as keyof typeof iconLibrary] &&
-                    React.createElement(
-                      iconLibrary[item.icon as keyof typeof iconLibrary],
-                      { size: 20 }
-                    )}
+                    React.createElement(iconLibrary[item.icon as keyof typeof iconLibrary], {
+                      size: 20,
+                    })}
                   <span className="hidden sm:inline">{item.name}</span>
                 </Link>
-              )
+              ),
           )}
         </nav>
       )}

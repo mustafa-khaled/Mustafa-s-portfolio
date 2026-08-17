@@ -1,8 +1,9 @@
-export { Header } from "@/components/Header";
 export { Footer } from "@/components/Footer";
-export { ProjectCard } from "@/components/ProjectCard";
+export { Header } from "@/components/Header";
 export { HeadingLink } from "@/components/HeadingLink";
+export { ProjectCard } from "@/components/ProjectCard";
+export { ProjectImages } from "@/components/ProjectImages";
 export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
+export { ThemeScript } from "@/components/ThemeScript";
 export { ThemeToggle } from "@/components/ThemeToggle";
-export { ProjectImages } from "@/components/ProjectImages";

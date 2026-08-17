@@ -1,5 +1,5 @@
-export { Hero } from "./Hero";
 export { AboutAside } from "./AboutAside";
-export { WorkExperience } from "./WorkExperience";
+export { Hero } from "./Hero";
 export { Studies } from "./Studies";
 export { TechnicalSkills } from "./TechnicalSkills";
+export { WorkExperience } from "./WorkExperience";

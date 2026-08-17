@@ -1,5 +1,5 @@
-import { Person } from "@/types";
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
+import type { Person } from "@/types";
 
 export const person: Record<Locale, Person> = {
   en: {

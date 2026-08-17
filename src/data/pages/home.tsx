@@ -1,5 +1,5 @@
-import { Home } from "@/types";
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
+import type { Home } from "@/types";
 import { person } from "../person";
 
 export const home: Record<Locale, Home> = {
@@ -23,10 +23,10 @@ export const home: Record<Locale, Home> = {
     },
     subline: (
       <>
-        I help founders and CEOs turn ideas, legacy systems, and complex
-        operations into clear, scalable business platforms.
-        <br />I work on shipping platforms, dashboards, invoicing, and internal
-        tools that power real business workflows.
+        I help founders and CEOs turn ideas, legacy systems, and complex operations into clear,
+        scalable business platforms.
+        <br />I work on shipping platforms, dashboards, invoicing, and internal tools that power
+        real business workflows.
       </>
     ),
   },
@@ -50,11 +50,11 @@ export const home: Record<Locale, Home> = {
     },
     subline: (
       <>
-        أساعد المؤسسين والمديرين التنفيذيين في تحويل الأفكار والأنظمة القديمة
-        والعمليات المعقدة إلى منصات أعمال واضحة وقابلة للتطوير.
+        أساعد المؤسسين والمديرين التنفيذيين في تحويل الأفكار والأنظمة القديمة والعمليات المعقدة إلى
+        منصات أعمال واضحة وقابلة للتطوير.
         <br />
-        أعمل على منصات الشحن، ولوحات التحكم، ونظم الفوترة، والأدوات الداخلية
-        التي تدير سير العمل الحقيقي للشركات.
+        أعمل على منصات الشحن، ولوحات التحكم، ونظم الفوترة، والأدوات الداخلية التي تدير سير العمل
+        الحقيقي للشركات.
       </>
     ),
   },

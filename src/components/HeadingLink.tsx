@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { iconLibrary } from "@/resources/icons";
 import classNames from "classnames";
+import type React from "react";
+import { iconLibrary } from "@/resources/icons";
 
 interface HeadingLinkProps {
   id: string;
@@ -11,12 +11,7 @@ interface HeadingLinkProps {
   style?: React.CSSProperties;
 }
 
-export const HeadingLink: React.FC<HeadingLinkProps> = ({
-  id,
-  level,
-  children,
-  style,
-}) => {
+export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, style }) => {
   const copyURL = (id: string): void => {
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
     navigator.clipboard.writeText(url).then(
@@ -26,7 +21,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
       },
       () => {
         console.error("Failed to copy link");
-      }
+      },
     );
   };
 
@@ -52,7 +47,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
         id={id}
         className={classNames(
           sizeClasses[level],
-          "text-[var(--neutral-on-background-strong)] mb-0 transition-colors group-hover:text-[var(--brand-solid-strong)]"
+          "text-[var(--neutral-on-background-strong)] mb-0 transition-colors group-hover:text-[var(--brand-solid-strong)]",
         )}
       >
         {children}

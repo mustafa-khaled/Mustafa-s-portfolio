@@ -1,4 +1,4 @@
-import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import type { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 /**
  * Display configuration for UI elements.

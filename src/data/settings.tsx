@@ -1,4 +1,4 @@
-import { Newsletter, Social } from "@/types";
+import type { Newsletter, Social } from "@/types";
 import { person } from "./person";
 
 export const newsletter: Newsletter = {

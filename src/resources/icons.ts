@@ -1,56 +1,52 @@
-import { IconType } from "react-icons";
-
-import {
-  HiArrowUpRight,
-  HiOutlineLink,
-  HiArrowTopRightOnSquare,
-  HiEnvelope,
-  HiCalendarDays,
-  HiArrowRight,
-  HiOutlineEye,
-  HiOutlineEyeSlash,
-  HiOutlineDocument,
-  HiOutlineGlobeAsiaAustralia,
-  HiOutlineRocketLaunch,
-  HiOutlineSun,
-  HiOutlineMoon,
-} from "react-icons/hi2";
-
-import {
-  PiHouseDuotone,
-  PiUserCircleDuotone,
-  PiGridFourDuotone,
-  PiBookBookmarkDuotone,
-  PiImageDuotone,
-} from "react-icons/pi";
-
-import {
-  SiJavascript,
-  SiNextdotjs,
-  SiFigma,
-  SiSupabase,
-  SiReact,
-  SiTypescript,
-  SiNodedotjs,
-  SiMongodb,
-  SiDocker,
-  SiTailwindcss,
-  SiGit,
-} from "react-icons/si";
-
+import type { IconType } from "react-icons";
 import {
   FaDiscord,
+  FaFacebook,
   FaGithub,
   FaLinkedin,
-  FaX,
-  FaThreads,
-  FaXTwitter,
-  FaFacebook,
   FaPinterest,
-  FaWhatsapp,
   FaReddit,
   FaTelegram,
+  FaThreads,
+  FaWhatsapp,
+  FaX,
+  FaXTwitter,
 } from "react-icons/fa6";
+import {
+  HiArrowRight,
+  HiArrowTopRightOnSquare,
+  HiArrowUpRight,
+  HiCalendarDays,
+  HiEnvelope,
+  HiOutlineDocument,
+  HiOutlineEye,
+  HiOutlineEyeSlash,
+  HiOutlineGlobeAsiaAustralia,
+  HiOutlineLink,
+  HiOutlineMoon,
+  HiOutlineRocketLaunch,
+  HiOutlineSun,
+} from "react-icons/hi2";
+import {
+  PiBookBookmarkDuotone,
+  PiGridFourDuotone,
+  PiHouseDuotone,
+  PiImageDuotone,
+  PiUserCircleDuotone,
+} from "react-icons/pi";
+import {
+  SiDocker,
+  SiFigma,
+  SiGit,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,

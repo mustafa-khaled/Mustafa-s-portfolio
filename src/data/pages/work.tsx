@@ -1,5 +1,5 @@
-import { Work } from "@/types";
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
+import type { Work } from "@/types";
 import { person } from "../person";
 
 export const work: Record<Locale, Work> = {

@@ -1,14 +1,9 @@
-import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
-
-import { Locale } from "@/i18n-config";
+import type { Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/get-dictionary";
+import { baseURL, person, work } from "@/resources";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = (await params) as { locale: Locale };
   const workLocale = work[locale];
   return {
@@ -25,11 +20,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProjectsPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = (await params) as { locale: Locale };
   const dict = await getDictionary(locale);
 
