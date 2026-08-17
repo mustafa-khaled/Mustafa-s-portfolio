@@ -12,6 +12,7 @@ import {
   FaX,
   FaXTwitter,
 } from "react-icons/fa6";
+
 import {
   HiArrowRight,
   HiArrowTopRightOnSquare,
