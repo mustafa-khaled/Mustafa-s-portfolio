@@ -23,9 +23,6 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
-      negotiator:
-        specifier: ^1.0.0
-        version: 1.0.0
       next:
         specifier: ^16.3.1
         version: 16.3.1(@types/node@26.2.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.97.2)
@@ -48,12 +45,6 @@ importers:
       '@biomejs/biome':
         specifier: ^2.5.8
         version: 2.5.8
-      '@netlify/plugin-nextjs':
-        specifier: ^5.15.13
-        version: 5.15.13
-      '@types/negotiator':
-        specifier: ^0.6.4
-        version: 0.6.4
       '@types/node':
         specifier: ^26.2.0
         version: 26.2.0
@@ -334,10 +325,6 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@netlify/plugin-nextjs@5.15.13':
-    resolution: {integrity: sha512-gBmWtgG13ZW4ytNMCvacfwZemtdtV/Ekc+6RBYvI5fndjmDvKxgFHylsw7oli+PHMGAtNqaJrN8QccGnDReu6A==}
-    engines: {node: '>=18.0.0'}
-
   '@next/env@16.3.1':
     resolution: {integrity: sha512-35G3xwkQUb2oETSDjFXGrVugknoayLFBh7vSE+yAcl9IP2zT9wyGwq7297AYHR11kJld807t5f8AJBs6WBzXsQ==}
 
@@ -517,9 +504,6 @@ packages:
 
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
-
-  '@types/negotiator@0.6.4':
-    resolution: {integrity: sha512-elf6BsTq+AkyNsb2h5cGNst2Mc7dPliVoAPm1fXglC/BM3f2pFA40BaSSv3E5lyHteEawVKLP+8TwiY1DMNb3A==}
 
   '@types/node@26.2.0':
     resolution: {integrity: sha512-5IviulTZeRNp2vAJ514cc/HUlY5nZ9fCbq9DMyC52BrhFZACo3nI0R7qBxhQmo/d27NFe96ur/b7Wwxklda+kg==}
@@ -1065,10 +1049,6 @@ packages:
     resolution: {integrity: sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-
-  negotiator@1.0.0:
-    resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
-    engines: {node: '>= 0.6'}
 
   next-mdx-remote@5.0.0:
     resolution: {integrity: sha512-RNNbqRpK9/dcIFZs/esQhuLA8jANqlH694yqoDBK8hkVdJUndzzGmnPHa2nyi90N4Z9VmzuSWNRpr5ItT3M7xQ==}
@@ -1708,8 +1688,6 @@ snapshots:
       '@types/react': 19.2.8
       react: 19.2.8
 
-  '@netlify/plugin-nextjs@5.15.13': {}
-
   '@next/env@16.3.1': {}
 
   '@next/mdx@16.3.1(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.2.8)(react@19.2.8))':
@@ -1841,8 +1819,6 @@ snapshots:
   '@types/mdx@2.0.13': {}
 
   '@types/ms@2.1.0': {}
-
-  '@types/negotiator@0.6.4': {}
 
   '@types/node@26.2.0':
     dependencies:
@@ -2573,8 +2549,6 @@ snapshots:
   nanoid@3.3.11: {}
 
   nanoid@3.3.18: {}
-
-  negotiator@1.0.0: {}
 
   next-mdx-remote@5.0.0(@types/react@19.2.8)(react@19.2.8):
     dependencies:

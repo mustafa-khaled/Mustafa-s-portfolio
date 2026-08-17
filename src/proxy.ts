@@ -1,18 +1,32 @@
 import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
 import { type NextRequest, NextResponse } from "next/server";
 import { i18n } from "./i18n-config";
 
+function parseAcceptLanguage(header: string): string[] {
+  if (!header) return [];
+
+  return header
+    .split(",")
+    .map((part) => {
+      const [lang, ...params] = part.trim().split(";");
+      const quality = params.find((p) => p.startsWith("q="));
+      return {
+        lang: lang.trim(),
+        q: quality ? Number.parseFloat(quality.slice(2)) : 1,
+      };
+    })
+    .filter((item) => !Number.isNaN(item.q))
+    .sort((a, b) => b.q - a.q)
+    .map((item) => item.lang);
+}
+
 function getLocale(request: NextRequest): string {
   try {
-    const negotiatorHeaders: Record<string, string> = {};
-    request.headers.forEach((value, key) => {
-      negotiatorHeaders[key] = value;
-    });
+    const acceptLanguage = request.headers.get("accept-language") ?? "";
+    const languages = parseAcceptLanguage(acceptLanguage);
 
     // @ts-expect-error locales are readonly
     const locales: string[] = i18n.locales;
-    const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
     return matchLocale(languages, locales, i18n.defaultLocale);
   } catch {
